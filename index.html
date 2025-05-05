@@ -1,63 +1,867 @@
 <!DOCTYPE html>
 <!-- saved from url=(0140)https://bapavy81096kmyj0.canva-hosted-embed.com/codelet/AAEAEGJhcGF2eTgxMDk2a215ajAAAAAAAZalPtVw8k7jUFxYQd08H6Z5U580HqNjBgwzWiKVPGvIQ1fGx04/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizMaster</title>
     <script src="./saved_resource"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f0f9ff;
         }
+
         .fade-in {
             animation: fadeIn 0.5s ease-in-out;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .btn-primary {
             transition: all 0.3s ease;
         }
+
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
+
         .choice-btn {
             transition: all 0.2s ease;
         }
+
         .choice-btn:hover:not(.correct):not(.incorrect) {
             background-color: #dbeafe;
             transform: translateY(-1px);
         }
+
         .correct {
             background-color: #d1fae5 !important;
             border-color: #10b981 !important;
         }
+
         .incorrect {
             background-color: #fee2e2 !important;
             border-color: #ef4444 !important;
         }
+
         .progress-bar {
             transition: width 0.5s ease;
         }
+
         .quiz-card {
             transition: all 0.3s ease;
         }
+
         .quiz-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
         }
     </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.my-6{margin-top:1.5rem;margin-bottom:1.5rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-4{margin-top:1rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-2\.5{height:0.625rem}.h-28{height:7rem}.h-16{height:4rem}.h-3{height:0.75rem}.min-h-screen{min-height:100vh}.w-28{width:7rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.flex-grow{flex-grow:1}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-6{gap:1.5rem}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border-2{border-width:2px}.border{border-width:1px}.border-t{border-top-width:1px}.border-blue-600{--tw-border-opacity:1;border-color:rgb(37 99 235 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246 / var(--tw-border-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-purple-600{--tw-bg-opacity:1;background-color:rgb(147 51 234 / var(--tw-bg-opacity, 1))}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-200:hover{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-700:hover{--tw-bg-opacity:1;background-color:rgb(126 34 206 / var(--tw-bg-opacity, 1))}.hover\:text-blue-800:hover{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:my-8{margin-top:2rem;margin-bottom:2rem}.md\:mb-8{margin-bottom:2rem}.md\:h-32{height:8rem}.md\:w-32{width:8rem}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:p-8{padding:2rem}.md\:py-8{padding-top:2rem;padding-bottom:2rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}</style></head>
+    <style>
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        /* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
+
+        ::after,
+        ::before {
+            --tw-content: ''
+        }
+
+        :host,
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body {
+            margin: 0;
+            line-height: inherit
+        }
+
+        hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px
+        }
+
+        abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        button,
+        input:where([type=button]),
+        input:where([type=reset]),
+        input:where([type=submit]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+        }
+
+        :-moz-focusring {
+            outline: auto
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        pre {
+            margin: 0
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0
+        }
+
+        legend {
+            padding: 0
+        }
+
+        menu,
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        dialog {
+            padding: 0
+        }
+
+        textarea {
+            resize: vertical
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 1;
+            color: #9ca3af
+        }
+
+        [role=button],
+        button {
+            cursor: pointer
+        }
+
+        :disabled {
+            cursor: default
+        }
+
+        audio,
+        canvas,
+        embed,
+        iframe,
+        img,
+        object,
+        svg,
+        video {
+            display: block;
+            vertical-align: middle
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        [hidden]:where(:not([hidden=until-found])) {
+            display: none
+        }
+
+        .container {
+            width: 100%
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px
+            }
+        }
+
+        @media (min-width: 1536px) {
+            .container {
+                max-width: 1536px
+            }
+        }
+
+        .relative {
+            position: relative
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .my-6 {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem
+        }
+
+        .mb-3 {
+            margin-bottom: 0.75rem
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem
+        }
+
+        .mt-4 {
+            margin-top: 1rem
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .grid {
+            display: grid
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .h-2\.5 {
+            height: 0.625rem
+        }
+
+        .h-28 {
+            height: 7rem
+        }
+
+        .h-16 {
+            height: 4rem
+        }
+
+        .h-3 {
+            height: 0.75rem
+        }
+
+        .min-h-screen {
+            min-height: 100vh
+        }
+
+        .w-28 {
+            width: 7rem
+        }
+
+        .w-full {
+            width: 100%
+        }
+
+        .max-w-2xl {
+            max-width: 42rem
+        }
+
+        .max-w-4xl {
+            max-width: 56rem
+        }
+
+        .flex-grow {
+            flex-grow: 1
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr))
+        }
+
+        .flex-col {
+            flex-direction: column
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .justify-between {
+            justify-content: space-between
+        }
+
+        .gap-6 {
+            gap: 1.5rem
+        }
+
+        .space-y-3> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(0.75rem * var(--tw-space-y-reverse))
+        }
+
+        .space-y-4> :not([hidden])~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(1rem * var(--tw-space-y-reverse))
+        }
+
+        .overflow-hidden {
+            overflow: hidden
+        }
+
+        .rounded-full {
+            border-radius: 9999px
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem
+        }
+
+        .border-2 {
+            border-width: 2px
+        }
+
+        .border {
+            border-width: 1px
+        }
+
+        .border-t {
+            border-top-width: 1px
+        }
+
+        .border-blue-600 {
+            --tw-border-opacity: 1;
+            border-color: rgb(37 99 235 / var(--tw-border-opacity, 1))
+        }
+
+        .border-gray-200 {
+            --tw-border-opacity: 1;
+            border-color: rgb(229 231 235 / var(--tw-border-opacity, 1))
+        }
+
+        .border-gray-100 {
+            --tw-border-opacity: 1;
+            border-color: rgb(243 244 246 / var(--tw-border-opacity, 1))
+        }
+
+        .bg-blue-600 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-gray-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-gray-200 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-white {
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
+        }
+
+        .bg-purple-600 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(147 51 234 / var(--tw-bg-opacity, 1))
+        }
+
+        .p-4 {
+            padding: 1rem
+        }
+
+        .p-6 {
+            padding: 1.5rem
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem
+        }
+
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem
+        }
+
+        .py-6 {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem
+        }
+
+        .font-bold {
+            font-weight: 700
+        }
+
+        .font-medium {
+            font-weight: 500
+        }
+
+        .font-semibold {
+            font-weight: 600
+        }
+
+        .text-blue-600 {
+            --tw-text-opacity: 1;
+            color: rgb(37 99 235 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-500 {
+            --tw-text-opacity: 1;
+            color: rgb(107 114 128 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-600 {
+            --tw-text-opacity: 1;
+            color: rgb(75 85 99 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-700 {
+            --tw-text-opacity: 1;
+            color: rgb(55 65 81 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-800 {
+            --tw-text-opacity: 1;
+            color: rgb(31 41 55 / var(--tw-text-opacity, 1))
+        }
+
+        .text-white {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .text-green-600 {
+            --tw-text-opacity: 1;
+            color: rgb(22 163 74 / var(--tw-text-opacity, 1))
+        }
+
+        .text-red-600 {
+            --tw-text-opacity: 1;
+            color: rgb(220 38 38 / var(--tw-text-opacity, 1))
+        }
+
+        .shadow-md {
+            --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .shadow-sm {
+            --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .hover\:bg-blue-50:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:bg-blue-700:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(29 78 216 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:bg-gray-200:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:bg-purple-700:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(126 34 206 / var(--tw-bg-opacity, 1))
+        }
+
+        .hover\:text-blue-800:hover {
+            --tw-text-opacity: 1;
+            color: rgb(30 64 175 / var(--tw-text-opacity, 1))
+        }
+
+        @media (min-width: 768px) {
+            .md\:my-8 {
+                margin-top: 2rem;
+                margin-bottom: 2rem
+            }
+
+            .md\:mb-8 {
+                margin-bottom: 2rem
+            }
+
+            .md\:h-32 {
+                height: 8rem
+            }
+
+            .md\:w-32 {
+                width: 8rem
+            }
+
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+
+            .md\:p-8 {
+                padding: 2rem
+            }
+
+            .md\:py-8 {
+                padding-top: 2rem;
+                padding-bottom: 2rem
+            }
+
+            .md\:text-2xl {
+                font-size: 1.5rem;
+                line-height: 2rem
+            }
+
+            .md\:text-3xl {
+                font-size: 1.875rem;
+                line-height: 2.25rem
+            }
+
+            .md\:text-xl {
+                font-size: 1.25rem;
+                line-height: 1.75rem
+            }
+        }
+    </style>
+</head>
+
 <body>
     <div id="app" class="min-h-screen flex flex-col">
         <!-- Header -->
         <header class="bg-white shadow-sm">
             <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-                <h1 class="text-xl md:text-2xl font-bold text-blue-600">QuizMaster</h1>
+                <h1 class="text-xl md:text-2xl font-bold text-blue-600">Quiz Reviewer Ni Gad Kasi Tinatamad Sya Mag Aral
+                </h1>
                 <button id="homeBtn" class="text-blue-600 hover:text-blue-800 font-medium">Home</button>
             </div>
         </header>
@@ -67,51 +871,62 @@
             <!-- Quiz Selection Page -->
             <div id="quizSelectionPage" class="fade-in max-w-4xl mx-auto">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">Choose a Quiz</h2>
-                
-                <div id="quizList" class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="quiz-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
-                    <div class="bg-blue-600 h-3"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">General Knowledge Quiz</h3>
-                        <p class="text-gray-600 text-sm mb-4 h-16">Test your knowledge with this general knowledge quiz covering various topics from geography to science and history.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">10 questions</span>
-                            <span class="text-sm text-red-600">10 to review</span>
+
+                <div id="quizList" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="quiz-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                        <div class="bg-blue-600 h-3"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Information Management Module 1</h3>
+                            <p class="text-gray-600 text-sm mb-4 h-16">Im so tired all the time so i here is a set of
+                                quiz reviewer ma dudes</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">10 questions</span>
+                                <span class="text-sm text-red-600">10 to review</span>
+                            </div>
+                            <button
+                                class="select-quiz-btn btn-primary w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg"
+                                data-quiz-id="general">
+                                Select Quiz
+                            </button>
                         </div>
-                        <button class="select-quiz-btn btn-primary w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg" data-quiz-id="general">
-                            Select Quiz
-                        </button>
                     </div>
-                </div><div class="quiz-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
-                    <div class="bg-purple-600 h-3"></div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Technology Quiz</h3>
-                        <p class="text-gray-600 text-sm mb-4 h-16">Challenge yourself with questions about computers, programming, and the digital world.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">10 questions</span>
-                            <span class="text-sm text-green-600">All completed</span>
+                    <div class="quiz-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                        <div class="bg-purple-600 h-3"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Module 2</h3>
+                            <p class="text-gray-600 text-sm mb-4 h-16">Why do I need to do this? engk dude!</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">10 questions</span>
+                                <span class="text-sm text-green-600">All completed</span>
+                            </div>
+                            <button
+                                class="select-quiz-btn btn-primary w-full mt-4 bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg"
+                                data-quiz-id="tech">
+                                Select Quiz
+                            </button>
                         </div>
-                        <button class="select-quiz-btn btn-primary w-full mt-4 bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg" data-quiz-id="tech">
-                            Select Quiz
-                        </button>
                     </div>
-                </div></div>
+                </div>
             </div>
 
             <!-- Home Page -->
             <div id="homePage" class="fade-in max-w-2xl mx-auto bg-white rounded-xl shadow-md p-6 md:p-8 mb-8 hidden">
                 <h2 id="quizTitle" class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Quiz Title</h2>
                 <p id="quizDescription" class="text-gray-600 mb-6">Quiz description goes here.</p>
-                
+
                 <div class="space-y-4">
-                    <button id="startQuizBtn" class="btn-primary w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg">
+                    <button id="startQuizBtn"
+                        class="btn-primary w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg">
                         Start New Quiz
                     </button>
-                    
-                    <button id="retakeMistakesBtn" class="w-full bg-white border-2 border-blue-600 text-blue-600 font-medium py-3 px-6 rounded-lg hover:bg-blue-50 hidden">
+
+                    <button id="retakeMistakesBtn"
+                        class="w-full bg-white border-2 border-blue-600 text-blue-600 font-medium py-3 px-6 rounded-lg hover:bg-blue-50 hidden">
                         Retake Incorrect Questions (<span id="mistakesCount">0</span>)
                     </button>
-                    
-                    <button id="backToQuizzesBtn" class="w-full bg-gray-100 text-gray-700 font-medium py-3 px-6 rounded-lg hover:bg-gray-200">
+
+                    <button id="backToQuizzesBtn"
+                        class="w-full bg-gray-100 text-gray-700 font-medium py-3 px-6 rounded-lg hover:bg-gray-200">
                         Back to All Quizzes
                     </button>
                 </div>
@@ -121,25 +936,29 @@
             <div id="quizPage" class="fade-in max-w-2xl mx-auto bg-white rounded-xl shadow-md p-6 md:p-8 hidden">
                 <div class="mb-6">
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm font-medium text-gray-600">Question <span id="currentQuestionNum">1</span> of <span id="totalQuestions">10</span></span>
+                        <span class="text-sm font-medium text-gray-600">Question <span id="currentQuestionNum">1</span>
+                            of <span id="totalQuestions">10</span></span>
                         <span class="text-sm font-medium text-gray-600">Score: <span id="currentScore">0</span></span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2.5">
-                        <div id="progressBar" class="progress-bar bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+                        <div id="progressBar" class="progress-bar bg-blue-600 h-2.5 rounded-full" style="width: 0%">
+                        </div>
                     </div>
                 </div>
-                
-                <h3 id="questionText" class="text-lg md:text-xl font-semibold text-gray-800 mb-6">Question text goes here?</h3>
-                
+
+                <h3 id="questionText" class="text-lg md:text-xl font-semibold text-gray-800 mb-6">Question text goes
+                    here?</h3>
+
                 <div id="choices" class="space-y-3 mb-6">
                     <!-- Choices will be inserted here -->
                 </div>
-                
+
                 <div id="feedback" class="p-4 rounded-lg mb-6 hidden">
                     <!-- Feedback will be shown here -->
                 </div>
-                
-                <button id="nextBtn" class="btn-primary bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg w-full hidden">
+
+                <button id="nextBtn"
+                    class="btn-primary bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg w-full hidden">
                     Next Question
                 </button>
             </div>
@@ -147,40 +966,46 @@
             <!-- Results Page -->
             <div id="resultsPage" class="fade-in max-w-2xl mx-auto bg-white rounded-xl shadow-md p-6 md:p-8 hidden">
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Quiz Results</h2>
-                
+
                 <div class="flex items-center justify-center my-6 md:my-8">
                     <div class="relative">
                         <svg class="w-28 h-28 md:w-32 md:h-32" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="18" cy="18" r="16" fill="none" stroke="#e5e7eb" stroke-width="2"></circle>
-                            <circle id="resultCircle" cx="18" cy="18" r="16" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="100 100" stroke-dashoffset="0" transform="rotate(-90 18 18)"></circle>
-                            <text x="18" y="18" text-anchor="middle" dominant-baseline="central" font-size="8" font-weight="bold" fill="#1f2937">
+                            <circle id="resultCircle" cx="18" cy="18" r="16" fill="none" stroke="#3b82f6"
+                                stroke-width="2" stroke-dasharray="100 100" stroke-dashoffset="0"
+                                transform="rotate(-90 18 18)"></circle>
+                            <text x="18" y="18" text-anchor="middle" dominant-baseline="central" font-size="8"
+                                font-weight="bold" fill="#1f2937">
                                 <tspan id="scorePercent">0%</tspan>
                             </text>
                         </svg>
                     </div>
                 </div>
-                
+
                 <p class="text-center text-lg mb-6">
                     You scored <span id="finalScore">0</span> out of <span id="totalQuestionsResult">10</span>
                 </p>
-                
+
                 <div id="incorrectQuestionsSection" class="mb-6 md:mb-8 hidden">
                     <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-4">Questions to Review:</h3>
                     <div id="incorrectQuestionsList" class="space-y-4">
                         <!-- Incorrect questions will be listed here -->
                     </div>
                 </div>
-                
+
                 <div class="space-y-4">
-                    <button id="retakeIncorrectBtn" class="btn-primary w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg hidden">
+                    <button id="retakeIncorrectBtn"
+                        class="btn-primary w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg hidden">
                         Retake Incorrect Questions
                     </button>
-                    
-                    <button id="newQuizBtn" class="w-full bg-white border-2 border-blue-600 text-blue-600 font-medium py-3 px-6 rounded-lg hover:bg-blue-50">
+
+                    <button id="newQuizBtn"
+                        class="w-full bg-white border-2 border-blue-600 text-blue-600 font-medium py-3 px-6 rounded-lg hover:bg-blue-50">
                         Start New Quiz
                     </button>
-                    
-                    <button id="backToQuizzesResultBtn" class="w-full bg-gray-100 text-gray-700 font-medium py-3 px-6 rounded-lg hover:bg-gray-200">
+
+                    <button id="backToQuizzesResultBtn"
+                        class="w-full bg-gray-100 text-gray-700 font-medium py-3 px-6 rounded-lg hover:bg-gray-200">
                         Back to All Quizzes
                     </button>
                 </div>
@@ -199,70 +1024,491 @@
         // Quiz data - would normally be loaded from a JSON file or API
         const quizzesData = [
             {
-                id: "general",
-                title: "General Knowledge Quiz",
-                description: "Test your knowledge with this general knowledge quiz covering various topics from geography to science and history.",
+                id: "database",
+                title: "Database Knowledge Quiz",
+                description: "Test your knowledge of databases, SQL, data types, and constraints.",
                 questions: [
                     {
                         id: 1,
-                        question: "What is the capital of France?",
-                        choices: ["London", "Berlin", "Paris", "Madrid"],
-                        correctAnswer: "Paris"
+                        question: "What is a query in the context of a database?",
+                        choices: [
+                            "A type of database table",
+                            "A specific request for data manipulation issued by the user or application",
+                            "A programming language used only for web development",
+                            "A backup of the database"
+                        ],
+                        correctAnswer: "A specific request for data manipulation issued by the user or application"
                     },
                     {
                         id: 2,
-                        question: "Which planet is known as the Red Planet?",
-                        choices: ["Venus", "Mars", "Jupiter", "Saturn"],
-                        correctAnswer: "Mars"
+                        question: "What does SQL stand for?",
+                        choices: [
+                            "Structured Question Language",
+                            "Standard Query Logic",
+                            "Structured Query Language",
+                            "Sequential Query List"
+                        ],
+                        correctAnswer: "Structured Query Language"
                     },
                     {
                         id: 3,
-                        question: "What is the largest ocean on Earth?",
-                        choices: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
-                        correctAnswer: "Pacific Ocean"
+                        question: "How is SQL pronounced?",
+                        choices: [
+                            "Only as \"S-Q-L\"",
+                            "Only as \"sequel\"",
+                            "Either as \"S-Q-L\" or \"sequel\"",
+                            "As \"SQL\" (one syllable)"
+                        ],
+                        correctAnswer: "Either as \"S-Q-L\" or \"sequel\""
                     },
                     {
                         id: 4,
-                        question: "Who wrote 'Romeo and Juliet'?",
-                        choices: ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
-                        correctAnswer: "William Shakespeare"
+                        question: "Which of the following is NOT a function of SQL commands?",
+                        choices: [
+                            "Creating database and table structures",
+                            "Performing data manipulation",
+                            "Designing user interfaces",
+                            "Querying the database for useful information"
+                        ],
+                        correctAnswer: "Designing user interfaces"
                     },
                     {
                         id: 5,
-                        question: "What is the chemical symbol for gold?",
-                        choices: ["Go", "Gd", "Au", "Ag"],
-                        correctAnswer: "Au"
+                        question: "Which of these is a popular Database Management System (DBMS)?",
+                        choices: [
+                            "Microsoft Word",
+                            "Adobe Photoshop",
+                            "MySQL",
+                            "Google Chrome"
+                        ],
+                        correctAnswer: "MySQL"
                     },
                     {
                         id: 6,
-                        question: "Which country is home to the kangaroo?",
-                        choices: ["New Zealand", "South Africa", "Australia", "Brazil"],
-                        correctAnswer: "Australia"
+                        question: "Which DBMS is developed by Microsoft and widely used in enterprise environments?",
+                        choices: [
+                            "Oracle RDBMS",
+                            "Microsoft SQL Server",
+                            "MySQL",
+                            "Microsoft Excel"
+                        ],
+                        correctAnswer: "Microsoft SQL Server"
                     },
                     {
                         id: 7,
-                        question: "What is the largest mammal in the world?",
-                        choices: ["Elephant", "Blue Whale", "Giraffe", "Polar Bear"],
-                        correctAnswer: "Blue Whale"
+                        question: "True or False: Microsoft Access is a database management tool.",
+                        choices: [
+                            "True",
+                            "False"
+                        ],
+                        correctAnswer: "True"
                     },
                     {
                         id: 8,
-                        question: "In which year did World War II end?",
-                        choices: ["1943", "1945", "1947", "1950"],
-                        correctAnswer: "1945"
+                        question: "Which of the following is an open-source DBMS?",
+                        choices: [
+                            "Microsoft SQL Server",
+                            "Oracle RDBMS",
+                            "MySQL",
+                            "Microsoft Access"
+                        ],
+                        correctAnswer: "MySQL"
                     },
                     {
                         id: 9,
-                        question: "What is the main component of the Sun?",
-                        choices: ["Oxygen", "Carbon", "Helium", "Hydrogen"],
-                        correctAnswer: "Hydrogen"
+                        question: "SQL commands can be used for:",
+                        choices: [
+                            "Only querying data",
+                            "Only creating tables",
+                            "Both data manipulation and database administration",
+                            "Only deleting records"
+                        ],
+                        correctAnswer: "Both data manipulation and database administration"
                     },
                     {
                         id: 10,
-                        question: "Which famous scientist developed the theory of relativity?",
-                        choices: ["Isaac Newton", "Galileo Galilei", "Albert Einstein", "Stephen Hawking"],
-                        correctAnswer: "Albert Einstein"
+                        question: "Which DBMS is known for its use in large-scale enterprise applications?",
+                        choices: [
+                            "Microsoft Access",
+                            "Oracle RDBMS",
+                            "Notepad",
+                            "PowerPoint"
+                        ],
+                        correctAnswer: "Oracle RDBMS"
+                    },
+                    {
+                        id: 11,
+                        question: "Which category does the decimal data type belong to?",
+                        choices: [
+                            "Approximate numeric",
+                            "Exact numeric",
+                            "Character strings",
+                            "Binary strings"
+                        ],
+                        correctAnswer: "Exact numeric"
+                    },
+                    {
+                        id: 12,
+                        question: "Which of the following is an approximate numeric data type?",
+                        choices: [
+                            "int",
+                            "float",
+                            "money",
+                            "bit"
+                        ],
+                        correctAnswer: "float"
+                    },
+                    {
+                        id: 13,
+                        question: "What is the primary difference between char and varchar?",
+                        choices: [
+                            "char is for Unicode, varchar is not",
+                            "char is fixed-length, varchar is variable-length",
+                            "char is for binary data, varchar is for text",
+                            "char is case-sensitive, varchar is not"
+                        ],
+                        correctAnswer: "char is fixed-length, varchar is variable-length"
+                    },
+                    {
+                        id: 14,
+                        question: "Which data type would you use to store a large block of text?",
+                        choices: [
+                            "varchar",
+                            "text",
+                            "binary",
+                            "money"
+                        ],
+                        correctAnswer: "text"
+                    },
+                    {
+                        id: 15,
+                        question: "Which category includes datetime and time?",
+                        choices: [
+                            "Exact numeric",
+                            "Approximate numeric",
+                            "Date and time",
+                            "Unicode character strings"
+                        ],
+                        correctAnswer: "Date and time"
+                    },
+                    {
+                        id: 16,
+                        question: "What is the main purpose of nvarchar compared to varchar?",
+                        choices: [
+                            "nvarchar supports Unicode, varchar does not",
+                            "nvarchar is for binary data, varchar is for text",
+                            "nvarchar is fixed-length, varchar is variable-length",
+                            "nvarchar is only for numeric data"
+                        ],
+                        correctAnswer: "nvarchar supports Unicode, varchar does not"
+                    },
+                    {
+                        id: 17,
+                        question: "Which data type would you use to store a true/false value?",
+                        choices: [
+                            "int",
+                            "bit",
+                            "decimal",
+                            "float"
+                        ],
+                        correctAnswer: "bit"
+                    },
+                    {
+                        id: 18,
+                        question: "What is the difference between binary and varbinary?",
+                        choices: [
+                            "binary is fixed-length, varbinary is variable-length",
+                            "binary is for text, varbinary is for numbers",
+                            "binary supports Unicode, varbinary does not",
+                            "binary is deprecated, varbinary is the new standard"
+                        ],
+                        correctAnswer: "binary is fixed-length, varbinary is variable-length"
+                    },
+                    {
+                        id: 19,
+                        question: "Which of the following is NOT a valid SQL data type?",
+                        choices: [
+                            "image",
+                            "cursor",
+                            "array",
+                            "xml"
+                        ],
+                        correctAnswer: "array"
+                    },
+                    {
+                        id: 20,
+                        question: "Which data type is used to store globally unique identifiers (GUIDs)?",
+                        choices: [
+                            "uniqueidentifier",
+                            "sql_variant",
+                            "table",
+                            "ntext"
+                        ],
+                        correctAnswer: "uniqueidentifier"
+                    },
+                    {
+                        id: 21,
+                        question: "Which constraint ensures a column cannot contain NULL values?",
+                        choices: [
+                            "UNIQUE",
+                            "NOT NULL",
+                            "PRIMARY KEY",
+                            "CHECK"
+                        ],
+                        correctAnswer: "NOT NULL"
+                    },
+                    {
+                        id: 22,
+                        question: "How would you add a NOT NULL constraint to an existing table column?",
+                        choices: [
+                            "MODIFY TABLE Students SET NOT NULL (Section)",
+                            "ALTER TABLE Students ALTER COLUMN Section NOT NULL",
+                            "UPDATE TABLE Students SET Section NOT NULL",
+                            "CHANGE TABLE Students MODIFY Section NOT NULL"
+                        ],
+                        correctAnswer: "ALTER TABLE Students ALTER COLUMN Section NOT NULL"
+                    },
+                    {
+                        id: 23,
+                        question: "What is the purpose of a UNIQUE constraint?",
+                        choices: [
+                            "To ensure all values in a column are identical",
+                            "To prevent NULL values in a column",
+                            "To ensure all values in a column are different",
+                            "To link tables together"
+                        ],
+                        correctAnswer: "To ensure all values in a column are different"
+                    },
+                    {
+                        id: 24,
+                        question: "How would you add a UNIQUE constraint to an existing table?",
+                        choices: [
+                            "ALTER TABLE Students ADD UNIQUE (StudentID)",
+                            "MODIFY TABLE Students SET UNIQUE (StudentID)",
+                            "UPDATE TABLE Students ADD CONSTRAINT UNIQUE (StudentID)",
+                            "CHANGE TABLE Students UNIQUE (StudentID)"
+                        ],
+                        correctAnswer: "ALTER TABLE Students ADD UNIQUE (StudentID)"
+                    },
+                    {
+                        id: 25,
+                        question: "What is the main difference between PRIMARY KEY and UNIQUE constraints?",
+                        choices: [
+                            "PRIMARY KEY allows NULLs, UNIQUE doesn't",
+                            "PRIMARY KEY doesn't allow NULLs, UNIQUE does",
+                            "There is no difference",
+                            "PRIMARY KEY is for numbers only"
+                        ],
+                        correctAnswer: "PRIMARY KEY doesn't allow NULLs, UNIQUE does"
+                    },
+                    {
+                        id: 26,
+                        question: "How would you create a FOREIGN KEY constraint when creating a new table?",
+                        choices: [
+                            "CREATE TABLE Orders (OrderID int FOREIGN KEY REFERENCES Customers(CustomerID))",
+                            "CREATE TABLE Orders (OrderID int REFERENCES Customers(CustomerID))",
+                            "Both a and b are correct",
+                            "Neither a nor b is correct"
+                        ],
+                        correctAnswer: "Both a and b are correct"
+                    },
+                    {
+                        id: 27,
+                        question: "What does a CHECK constraint do?",
+                        choices: [
+                            "Verifies data type compatibility",
+                            "Ensures values meet a specified condition",
+                            "Checks for duplicate values",
+                            "Validates foreign key relationships"
+                        ],
+                        correctAnswer: "Ensures values meet a specified condition"
+                    },
+                    {
+                        id: 28,
+                        question: "How would you add a DEFAULT constraint to an existing table?",
+                        choices: [
+                            "ALTER TABLE Students SET DEFAULT 'Not yet enrolled' FOR Section",
+                            "ALTER TABLE Students ADD CONSTRAINT df_section DEFAULT 'Not yet enrolled' FOR Section",
+                            "MODIFY TABLE Students DEFAULT 'Not yet enrolled' FOR Section",
+                            "UPDATE TABLE Students SET DEFAULT 'Not yet enrolled' FOR Section"
+                        ],
+                        correctAnswer: "ALTER TABLE Students ADD CONSTRAINT df_section DEFAULT 'Not yet enrolled' FOR Section"
+                    },
+                    {
+                        id: 29,
+                        question: "Which constraint would you use to ensure student ages are at least 15?",
+                        choices: [
+                            "NOT NULL",
+                            "UNIQUE",
+                            "CHECK",
+                            "DEFAULT"
+                        ],
+                        correctAnswer: "CHECK"
+                    },
+                    {
+                        id: 30,
+                        question: "What happens if you try to insert NULL into a column with a NOT NULL constraint?",
+                        choices: [
+                            "The NULL value is converted to 0",
+                            "The NULL value is converted to an empty string",
+                            "The operation fails with an error",
+                            "The NULL value is accepted"
+                        ],
+                        correctAnswer: "The operation fails with an error"
+                    },
+                    {
+                        id: 31,
+                        question: "Can a table have multiple UNIQUE constraints?",
+                        choices: [
+                            "Yes",
+                            "No"
+                        ],
+                        correctAnswer: "Yes"
+                    },
+                    {
+                        id: 32,
+                        question: "What is the correct syntax for adding a PRIMARY KEY to an existing table?",
+                        choices: [
+                            "ALTER TABLE Students ADD PRIMARY KEY (StudentID)",
+                            "ALTER TABLE Students SET PRIMARY KEY (StudentID)",
+                            "MODIFY TABLE Students PRIMARY KEY (StudentID)",
+                            "UPDATE TABLE Students ADD PRIMARY KEY (StudentID)"
+                        ],
+                        correctAnswer: "ALTER TABLE Students ADD PRIMARY KEY (StudentID)"
+                    },
+                    {
+                        id: 33,
+                        question: "What SQL statement completely removes a database and all its contents?",
+                        choices: [
+                            "DELETE DATABASE",
+                            "REMOVE DATABASE",
+                            "DROP DATABASE",
+                            "ERASE DATABASE"
+                        ],
+                        correctAnswer: "DROP DATABASE"
+                    },
+                    {
+                        id: 34,
+                        question: "What happens when you execute DROP DATABASE myDB;?",
+                        choices: [
+                            "The database is backed up",
+                            "The database is permanently deleted",
+                            "The database is renamed",
+                            "The database is temporarily disabled"
+                        ],
+                        correctAnswer: "The database is permanently deleted"
+                    },
+                    {
+                        id: 35,
+                        question: "What is the correct syntax to create a new table called 'Employees' with columns for ID (integer) and Name (string)?",
+                        choices: [
+                            "CREATE Employees (ID int, Name varchar(50))",
+                            "CREATE TABLE Employees (ID int, Name varchar(50))",
+                            "NEW TABLE Employees (ID int, Name varchar(50))",
+                            "MAKE TABLE Employees (ID int, Name varchar(50))"
+                        ],
+                        correctAnswer: "CREATE TABLE Employees (ID int, Name varchar(50))"
+                    },
+                    {
+                        id: 36,
+                        question: "Which statement would create a table with StudentID, LastName, and FirstName columns?",
+                        choices: [
+                            "NEW TABLE Students WITH StudentID, LastName, FirstName",
+                            "CREATE Students (StudentID, LastName, FirstName)",
+                            "CREATE TABLE Students (StudentID varchar(11), (LastName varchar(99)), (FirstName varchar(99))",
+                            "CREATE TABLE Students (StudentID varchar(11), LastName varchar(99), FirstName varchar(99)"
+                        ],
+                        correctAnswer: "CREATE TABLE Students (StudentID varchar(11), LastName varchar(99), FirstName varchar(99)"
+                    },
+                    {
+                        id: 37,
+                        question: "What is the difference between DROP TABLE and TRUNCATE TABLE?",
+                        choices: [
+                            "DROP removes the table structure, TRUNCATE keeps it",
+                            "TRUNCATE removes the table structure, DROP keeps it",
+                            "Both do exactly the same thing",
+                            "DROP is temporary, TRUNCATE is permanent"
+                        ],
+                        correctAnswer: "DROP removes the table structure, TRUNCATE keeps it"
+                    },
+                    {
+                        id: 38,
+                        question: "Which statement would completely remove the 'Orders' table from the database?",
+                        choices: [
+                            "DELETE TABLE Orders",
+                            "REMOVE TABLE Orders",
+                            "DROP TABLE Orders",
+                            "ERASE TABLE Orders"
+                        ],
+                        correctAnswer: "DROP TABLE Orders"
+                    },
+                    {
+                        id: 39,
+                        question: "How would you add a 'BirthDate' column to an existing 'Students' table?",
+                        choices: [
+                            "MODIFY TABLE Students ADD BirthDate date",
+                            "ALTER TABLE Students ADD BirthDate date",
+                            "UPDATE TABLE Students ADD COLUMN BirthDate date",
+                            "CHANGE TABLE Students ADD BirthDate date"
+                        ],
+                        correctAnswer: "ALTER TABLE Students ADD BirthDate date"
+                    },
+                    {
+                        id: 40,
+                        question: "What statement would remove the 'MiddleName' column from the 'Students' table?",
+                        choices: [
+                            "ALTER TABLE Students DELETE MiddleName",
+                            "ALTER TABLE Students REMOVE MiddleName",
+                            "ALTER TABLE Students DROP COLUMN MiddleName",
+                            "UPDATE TABLE Students DELETE COLUMN MiddleName"
+                        ],
+                        correctAnswer: "ALTER TABLE Students DROP COLUMN MiddleName"
+                    },
+                    {
+                        id: 41,
+                        question: "How would you change the data type of the 'PhoneNumber' column from varchar(15) to varchar(20)?",
+                        choices: [
+                            "MODIFY TABLE Students CHANGE PhoneNumber varchar(20)",
+                            "ALTER TABLE Students MODIFY COLUMN PhoneNumber varchar(20)",
+                            "ALTER TABLE Students ALTER COLUMN PhoneNumber varchar(20)",
+                            "UPDATE TABLE Students SET PhoneNumber varchar(20)"
+                        ],
+                        correctAnswer: "ALTER TABLE Students ALTER COLUMN PhoneNumber varchar(20)"
+                    },
+                    {
+                        id: 42,
+                        question: "You need to quickly remove all data from the 'LogEntries' table but keep the table structure for future use. Which command should you use?",
+                        choices: [
+                            "DELETE FROM LogEntries",
+                            "DROP TABLE LogEntries",
+                            "TRUNCATE TABLE LogEntries",
+                            "CLEAR TABLE LogEntries"
+                        ],
+                        correctAnswer: "TRUNCATE TABLE LogEntries"
+                    },
+                    {
+                        id: 43,
+                        question: "After creating a table, you realize you need to store middle names. What is the best approach?",
+                        choices: [
+                            "Delete and recreate the table with the new column",
+                            "Use ALTER TABLE to add the new column",
+                            "Create a new table with all columns and migrate data",
+                            "Store middle names in the FirstName column"
+                        ],
+                        correctAnswer: "Use ALTER TABLE to add the new column"
+                    },
+                    {
+                        id: 44,
+                        question: "What happens if you try to DROP a table that doesn't exist?",
+                        choices: [
+                            "The command is ignored",
+                            "An error occurs",
+                            "The database is deleted instead",
+                            "A warning appears but the operation continues"
+                        ],
+                        correctAnswer: "An error occurs"
                     }
+
                 ]
             },
             {
@@ -381,7 +1627,7 @@
         function init() {
             // Load incorrect questions from local storage if they exist
             loadIncorrectQuestionsFromStorage();
-            
+
             // Set up event listeners
             elements.startQuizBtn.addEventListener('click', startNewQuiz);
             elements.retakeMistakesBtn.addEventListener('click', retakeMistakes);
@@ -391,10 +1637,10 @@
             elements.nextBtn.addEventListener('click', handleNextQuestion);
             elements.retakeIncorrectBtn.addEventListener('click', retakeMistakes);
             elements.newQuizBtn.addEventListener('click', startNewQuiz);
-            
+
             // Create quiz selection cards
             createQuizSelectionCards();
-            
+
             // Show quiz selection page initially
             showPage('quizSelectionPage');
         }
@@ -402,21 +1648,21 @@
         // Create quiz selection cards
         function createQuizSelectionCards() {
             elements.quizList.innerHTML = '';
-            
+
             quizzesData.forEach(quiz => {
-                const incorrectCount = currentState.incorrectQuestions[quiz.id] ? 
+                const incorrectCount = currentState.incorrectQuestions[quiz.id] ?
                     currentState.incorrectQuestions[quiz.id].length : 0;
-                
+
                 const card = document.createElement('div');
                 card.className = 'quiz-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100';
-                
+
                 // Create a color based on quiz ID for visual distinction
                 const colors = {
                     general: 'bg-blue-600',
                     tech: 'bg-purple-600'
                 };
                 const bgColor = colors[quiz.id] || 'bg-blue-600';
-                
+
                 card.innerHTML = `
                     <div class="${bgColor} h-3"></div>
                     <div class="p-6">
@@ -424,18 +1670,18 @@
                         <p class="text-gray-600 text-sm mb-4 h-16">${quiz.description}</p>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-500">${quiz.questions.length} questions</span>
-                            ${incorrectCount > 0 ? 
-                                `<span class="text-sm text-red-600">${incorrectCount} to review</span>` : 
-                                '<span class="text-sm text-green-600">All completed</span>'}
+                            ${incorrectCount > 0 ?
+                        `<span class="text-sm text-red-600">${incorrectCount} to review</span>` :
+                        '<span class="text-sm text-green-600">All completed</span>'}
                         </div>
                         <button class="select-quiz-btn btn-primary w-full mt-4 bg-${quiz.id === 'tech' ? 'purple' : 'blue'}-600 hover:bg-${quiz.id === 'tech' ? 'purple' : 'blue'}-700 text-white font-medium py-2 px-4 rounded-lg" data-quiz-id="${quiz.id}">
                             Select Quiz
                         </button>
                     </div>
                 `;
-                
+
                 elements.quizList.appendChild(card);
-                
+
                 // Add event listener to the button
                 const selectBtn = card.querySelector('.select-quiz-btn');
                 selectBtn.addEventListener('click', () => selectQuiz(quiz.id));
@@ -459,14 +1705,14 @@
         function selectQuiz(quizId) {
             currentState.selectedQuizId = quizId;
             const selectedQuiz = getSelectedQuiz();
-            
+
             // Update quiz info
             elements.quizTitle.textContent = selectedQuiz.title;
             elements.quizDescription.textContent = selectedQuiz.description;
-            
+
             // Update mistakes UI
             updateMistakesUI();
-            
+
             // Show home page
             showPage('homePage');
         }
@@ -480,12 +1726,12 @@
         function updateMistakesUI() {
             const quizId = currentState.selectedQuizId;
             if (!quizId) return;
-            
+
             const incorrectQuestions = currentState.incorrectQuestions[quizId] || [];
             const count = incorrectQuestions.length;
-            
+
             elements.mistakesCount.textContent = count;
-            
+
             if (count > 0) {
                 elements.retakeMistakesBtn.classList.remove('hidden');
             } else {
@@ -497,7 +1743,7 @@
         function startNewQuiz() {
             const quizId = currentState.selectedQuizId;
             if (!quizId) return;
-            
+
             currentState = {
                 ...currentState,
                 currentQuestionIndex: 0,
@@ -505,7 +1751,7 @@
                 isRetakingMode: false,
                 answeredCurrentQuestion: false
             };
-            
+
             const selectedQuiz = getSelectedQuiz();
             elements.totalQuestions.textContent = selectedQuiz.questions.length;
             updateQuestionUI();
@@ -516,12 +1762,12 @@
         function retakeMistakes() {
             const quizId = currentState.selectedQuizId;
             if (!quizId) return;
-            
+
             const incorrectQuestions = currentState.incorrectQuestions[quizId] || [];
             if (incorrectQuestions.length === 0) {
                 return;
             }
-            
+
             currentState = {
                 ...currentState,
                 currentQuestionIndex: 0,
@@ -529,7 +1775,7 @@
                 isRetakingMode: true,
                 answeredCurrentQuestion: false
             };
-            
+
             elements.totalQuestions.textContent = incorrectQuestions.length;
             updateQuestionUI();
             showPage('quizPage');
@@ -538,21 +1784,21 @@
         // Update the question UI
         function updateQuestionUI() {
             const questionData = getCurrentQuestion();
-            
+
             elements.currentQuestionNum.textContent = currentState.currentQuestionIndex + 1;
             elements.currentScore.textContent = currentState.score;
-            
+
             // Update progress bar
             const totalQuestions = getTotalQuestionsForCurrentMode();
             const progressPercentage = ((currentState.currentQuestionIndex + 1) / totalQuestions) * 100;
             elements.progressBar.style.width = `${progressPercentage}%`;
-            
+
             // Set question text
             elements.questionText.textContent = questionData.question;
-            
+
             // Clear previous choices
             elements.choices.innerHTML = '';
-            
+
             // Add new choices
             questionData.choices.forEach((choice, index) => {
                 const choiceBtn = document.createElement('button');
@@ -561,11 +1807,11 @@
                 choiceBtn.addEventListener('click', () => handleChoiceSelection(choice, choiceBtn));
                 elements.choices.appendChild(choiceBtn);
             });
-            
+
             // Hide feedback and next button
             elements.feedback.classList.add('hidden');
             elements.nextBtn.classList.add('hidden');
-            
+
             // Reset answered state
             currentState.answeredCurrentQuestion = false;
         }
@@ -585,7 +1831,7 @@
         function getCurrentQuestion() {
             const quizId = currentState.selectedQuizId;
             const selectedQuiz = getSelectedQuiz();
-            
+
             if (currentState.isRetakingMode) {
                 const incorrectQuestions = currentState.incorrectQuestions[quizId] || [];
                 const questionId = incorrectQuestions[currentState.currentQuestionIndex];
@@ -600,26 +1846,26 @@
             if (currentState.answeredCurrentQuestion) {
                 return;
             }
-            
+
             currentState.answeredCurrentQuestion = true;
             const currentQuestion = getCurrentQuestion();
             const isCorrect = selectedChoice === currentQuestion.correctAnswer;
-            
+
             // Update UI to show correct/incorrect
             const choiceButtons = elements.choices.querySelectorAll('.choice-btn');
             choiceButtons.forEach(btn => {
                 if (btn === choiceBtn) {
                     btn.classList.add(isCorrect ? 'correct' : 'incorrect');
                 }
-                
+
                 if (btn.textContent === currentQuestion.correctAnswer) {
                     btn.classList.add('correct');
                 }
-                
+
                 // Disable all buttons
                 btn.disabled = true;
             });
-            
+
             // Show feedback
             elements.feedback.classList.remove('hidden');
             if (isCorrect) {
@@ -627,39 +1873,39 @@
                 elements.feedback.innerHTML = '<span class="font-medium">Correct!</span> Great job!';
                 currentState.score++;
                 elements.currentScore.textContent = currentState.score;
-                
+
                 // If in retake mode, remove this question from incorrect list
                 if (currentState.isRetakingMode) {
                     const quizId = currentState.selectedQuizId;
                     const questionId = currentQuestion.id;
                     currentState.incorrectQuestions[quizId] = (currentState.incorrectQuestions[quizId] || [])
                         .filter(id => id !== questionId);
-                    
+
                     // If no more incorrect questions for this quiz, clean up
                     if (currentState.incorrectQuestions[quizId].length === 0) {
                         delete currentState.incorrectQuestions[quizId];
                     }
-                    
+
                     saveIncorrectQuestionsToStorage();
                 }
             } else {
                 elements.feedback.className = 'p-4 rounded-lg mb-6 bg-red-100 text-red-800';
                 elements.feedback.innerHTML = `<span class="font-medium">Incorrect.</span> The correct answer is ${currentQuestion.correctAnswer}.`;
-                
+
                 // If not in retake mode, add to incorrect questions
                 if (!currentState.isRetakingMode) {
                     const quizId = currentState.selectedQuizId;
                     if (!currentState.incorrectQuestions[quizId]) {
                         currentState.incorrectQuestions[quizId] = [];
                     }
-                    
+
                     if (!currentState.incorrectQuestions[quizId].includes(currentQuestion.id)) {
                         currentState.incorrectQuestions[quizId].push(currentQuestion.id);
                         saveIncorrectQuestionsToStorage();
                     }
                 }
             }
-            
+
             // Show next button
             elements.nextBtn.classList.remove('hidden');
         }
@@ -667,9 +1913,9 @@
         // Handle next question button
         function handleNextQuestion() {
             currentState.currentQuestionIndex++;
-            
+
             const totalQuestions = getTotalQuestionsForCurrentMode();
-                
+
             if (currentState.currentQuestionIndex < totalQuestions) {
                 updateQuestionUI();
             } else {
@@ -680,31 +1926,31 @@
         // Show quiz results
         function showResults() {
             const totalQuestions = getTotalQuestionsForCurrentMode();
-                
+
             elements.finalScore.textContent = currentState.score;
             elements.totalQuestionsResult.textContent = totalQuestions;
-            
+
             // Calculate and display percentage
             const percentage = Math.round((currentState.score / totalQuestions) * 100);
             elements.scorePercent.textContent = `${percentage}%`;
-            
+
             // Update the circle graph
             const circumference = 2 * Math.PI * 16;
             const offset = circumference - (percentage / 100) * circumference;
             elements.resultCircle.style.strokeDasharray = `${circumference} ${circumference}`;
             elements.resultCircle.style.strokeDashoffset = offset;
-            
+
             // Show incorrect questions if there are any
             const quizId = currentState.selectedQuizId;
             const incorrectQuestions = currentState.incorrectQuestions[quizId] || [];
-            
+
             if (incorrectQuestions.length > 0) {
                 elements.incorrectQuestionsSection.classList.remove('hidden');
                 elements.retakeIncorrectBtn.classList.remove('hidden');
-                
+
                 // Clear previous list
                 elements.incorrectQuestionsList.innerHTML = '';
-                
+
                 // Add each incorrect question
                 const selectedQuiz = getSelectedQuiz();
                 incorrectQuestions.forEach(questionId => {
@@ -723,7 +1969,7 @@
                 elements.incorrectQuestionsSection.classList.add('hidden');
                 elements.retakeIncorrectBtn.classList.add('hidden');
             }
-            
+
             showPage('resultsPage');
             updateMistakesUI();
         }
@@ -740,12 +1986,16 @@
             elements.homePage.classList.add('hidden');
             elements.quizPage.classList.add('hidden');
             elements.resultsPage.classList.add('hidden');
-            
+
             elements[pageId].classList.remove('hidden');
         }
 
         // Initialize the app when the page loads
         document.addEventListener('DOMContentLoaded', init);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93afb87312fefed7',t:'MTc0NjQ0MjY4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;" src="./saved_resource.html"></iframe>
-</body></html>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'93afb87312fefed7',t:'MTc0NjQ0MjY4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+    <iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"
+        src="./saved_resource.html"></iframe>
+</body>
+
+</html>
