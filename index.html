@@ -1514,20 +1514,285 @@
             {
                 id: "Information Management Module 2",
                 title: "Information Management Module 2",
-                description: "Wala pang laman to guys, tinatamad pako haha mamaya na",
+                description: "May Lamana Na Sya Guys🥹",
                 questions: [
                     {
                         id: 1,
-                        question: "Sabing Wala pa Ngani!",
-                        choices: ["Sabing wala pa", "wth dude", "engk", "not cool"],
-                        correctAnswer: "Sabing wala pa"
+                        question: "What are the basic data manipulation commands in SQL?",
+                        choices: [
+                            "SELECT, DELETE, REMOVE, MODIFY",
+                            "INSERT, SELECT, UPDATE, DELETE",
+                            "ADD, SELECT, UPDATE, DELETE",
+                            "SELECT, REMOVE, ADD, MODIFY"
+                        ],
+                        correctAnswer: "INSERT, SELECT, UPDATE, DELETE"
                     },
                     {
                         id: 2,
-                        question: "Makulit talaga",
-                        choices: ["kulit ma dudes ha", "wth dude", "engk", "not cool"],
-                        correctAnswer: "kulit ma dudes ha"
+                        question: "Which SQL command is used to add new rows/records to a table?",
+                        choices: [
+                            "UPDATE",
+                            "DELETE",
+                            "INSERT INTO",
+                            "SELECT"
+                        ],
+                        correctAnswer: "INSERT INTO"
+                    },
+                    {
+                        id: 3,
+                        question: "What is the correct syntax to insert a new record into the 'Students' table for columns 'LastName' and 'Section'?",
+                        choices: [
+                            "INSERT INTO Students (LastName, Section) VALUES ('Reyes', 'IT102');",
+                            "INSERT INTO Students VALUES ('Reyes', 'IT102');",
+                            "INSERT INTO Students (LastName, Section) SET ('Reyes', 'IT102');",
+                            "INSERT INTO Students (LastName, Section) VALUES ('Reyes', IT102);"
+                        ],
+                        correctAnswer: "INSERT INTO Students (LastName, Section) VALUES ('Reyes', 'IT102');"
+                    },
+                    {
+                        id: 4,
+                        question: "To add new records to all the columns of a table, which SQL syntax should be used?",
+                        choices: [
+                            "INSERT INTO table_name (column1, column2) VALUES (value1, value2);",
+                            "INSERT INTO table_name VALUES (value1, value2);",
+                            "INSERT INTO table_name SELECT * FROM table_name;",
+                            "INSERT INTO table_name SET column1=value1, column2=value2;"
+                        ],
+                        correctAnswer: "INSERT INTO table_name VALUES (value1, value2);"
+                    },
+                    {
+                        id: 5,
+                        question: "What SQL command is used to retrieve values of all rows or a subset of rows from a table?",
+                        choices: [
+                            "SELECT",
+                            "INSERT",
+                            "UPDATE",
+                            "DELETE"
+                        ],
+                        correctAnswer: "SELECT"
+                    },
+                    {
+                        id: 6,
+                        question: "Which SQL query will retrieve all columns from the 'Students' table?",
+                        choices: [
+                            "SELECT * FROM Students;",
+                            "SELECT columns FROM Students;",
+                            "SELECT ALL FROM Students;",
+                            "SELECT * FROM table_name;"
+                        ],
+                        correctAnswer: "SELECT * FROM Students;"
+                    },
+                    {
+                        id: 7,
+                        question: "What does the DISTINCT operator do in SQL?",
+                        choices: [
+                            "Filters rows based on a condition",
+                            "Retrieves unique values from columns",
+                            "Sorts the result in ascending order",
+                            "Retrieves all records from the table"
+                        ],
+                        correctAnswer: "Retrieves unique values from columns"
+                    },
+                    {
+                        id: 8,
+                        question: "Which SQL query will retrieve all distinct values from the 'Section' column in the 'Students' table?",
+                        choices: [
+                            "SELECT DISTINCT Section FROM Students;",
+                            "SELECT Section FROM Students WHERE DISTINCT;",
+                            "SELECT ALL DISTINCT Section FROM Students;",
+                            "SELECT DISTINCT * FROM Students WHERE Section;"
+                        ],
+                        correctAnswer: "SELECT DISTINCT Section FROM Students;"
+                    },
+                    {
+                        id: 9,
+                        question: "What is the purpose of the WHERE clause in SQL?",
+                        choices: [
+                            "To add new records to the table",
+                            "To sort the results",
+                            "To filter the rows of data based on a condition",
+                            "To delete rows from the table"
+                        ],
+                        correctAnswer: "To filter the rows of data based on a condition"
+                    },
+                    {
+                        id: 10,
+                        question: "What will the following SQL query return: SELECT * FROM Students WHERE Section = 'IT101';",
+                        choices: [
+                            "All records in the 'Students' table with the Section 'IT101'",
+                            "All records in the 'Students' table where Section is NULL",
+                            "All records where Section is greater than 'IT101'",
+                            "All records in the 'Students' table excluding 'IT101'"
+                        ],
+                        correctAnswer: "All records in the 'Students' table with the Section 'IT101'"
+                    },
+                    {
+                        id: 11,
+                        question: "How do you query for rows where a column is empty or NULL?",
+                        choices: [
+                            "SELECT * FROM Students WHERE Section = NULL;",
+                            "SELECT * FROM Students WHERE Section IS EMPTY;",
+                            "SELECT * FROM Students WHERE Section IS NULL;",
+                            "SELECT * FROM Students WHERE Section = '';"
+                        ],
+                        correctAnswer: "SELECT * FROM Students WHERE Section IS NULL;"
+                    },
+                    {
+                        id: 12,
+                        question: "What does the LIKE operator do in SQL?",
+                        choices: [
+                            "Determines if a value matches a given number pattern",
+                            "Determines if a value matches a given string pattern",
+                            "Checks if a value is equal to another value",
+                            "Checks if a value is null"
+                        ],
+                        correctAnswer: "Determines if a value matches a given string pattern"
+                    },
+                    {
+                        id: 13,
+                        question: "What does the '%' wildcard in the LIKE operator represent?",
+                        choices: [
+                            "Zero, one, or multiple characters",
+                            "A single character",
+                            "A number",
+                            "Any special character"
+                        ],
+                        correctAnswer: "Zero, one, or multiple characters"
+                    },
+                    {
+                        id: 14,
+                        question: "Which SQL query will retrieve all students whose last names have 'b' in the second position?",
+                        choices: [
+                            "SELECT * FROM Students WHERE LastName LIKE 'b%';",
+                            "SELECT * FROM Students WHERE LastName LIKE '_b%';",
+                            "SELECT * FROM Students WHERE LastName LIKE '%b';",
+                            "SELECT * FROM Students WHERE LastName LIKE '%b%';"
+                        ],
+                        correctAnswer: "SELECT * FROM Students WHERE LastName LIKE '_b%';"
+                    },
+                    {
+                        id: 15,
+                        question: "What does the IN operator do in SQL?",
+                        choices: [
+                            "Checks whether a value is within a specified range",
+                            "Checks whether a value matches a given string pattern",
+                            "Checks whether a value matches any value within a given list",
+                            "Checks whether a value is greater than or equal to another value"
+                        ],
+                        correctAnswer: "Checks whether a value matches any value within a given list"
+                    },
+                    {
+                        id: 16,
+                        question: "Which SQL query will retrieve all students from the 'Students' table in Sections 'IT101', 'IT102', or 'IT103'?",
+                        choices: [
+                            "SELECT * FROM Students WHERE Section IN ('IT101', 'IT102', 'IT103');",
+                            "SELECT * FROM Students WHERE Section = ('IT101', 'IT102', 'IT103');",
+                            "SELECT * FROM Students WHERE Section LIKE 'IT101' OR 'IT102' OR 'IT103';",
+                            "SELECT * FROM Students WHERE Section IN ('IT101', 'IT102');"
+                        ],
+                        correctAnswer: "SELECT * FROM Students WHERE Section IN ('IT101', 'IT102', 'IT103');"
+                    },
+                    {
+                        id: 17,
+                        question: "What does the BETWEEN operator do in SQL?",
+                        choices: [
+                            "Checks if a value matches a list of values",
+                            "Checks if a value is within a range",
+                            "Checks if a value matches a specific pattern",
+                            "Checks if a value is null"
+                        ],
+                        correctAnswer: "Checks if a value is within a range"
+                    },
+                    {
+                        id: 18,
+                        question: "Which SQL query will retrieve all students whose age is between 13 and 15?",
+                        choices: [
+                            "SELECT * FROM Students WHERE Age BETWEEN 13 AND 15;",
+                            "SELECT * FROM Students WHERE Age > 13 AND < 15;",
+                            "SELECT * FROM Students WHERE Age = 13 OR 15;",
+                            "SELECT * FROM Students WHERE Age > 13 AND Age < 15;"
+                        ],
+                        correctAnswer: "SELECT * FROM Students WHERE Age BETWEEN 13 AND 15;"
+                    },
+                    {
+                        id: 19,
+                        question: "What does the ORDER BY clause do in SQL?",
+                        choices: [
+                            "Sorts retrieved values in ascending or descending order",
+                            "Groups retrieved values based on certain criteria",
+                            "Filters the rows of data",
+                            "Deletes rows from a table"
+                        ],
+                        correctAnswer: "Sorts retrieved values in ascending or descending order"
+                    },
+                    {
+                        id: 20,
+                        question: "Which SQL query will sort the results by 'LastName' in ascending order?",
+                        choices: [
+                            "SELECT * FROM Students ORDER BY LastName DESC;",
+                            "SELECT * FROM Students ORDER BY LastName;",
+                            "SELECT * FROM Students ORDER BY LastName ASC;",
+                            "SELECT * FROM Students ORDER BY LastName DESC, FirstName;"
+                        ],
+                        correctAnswer: "SELECT * FROM Students ORDER BY LastName;"
+                    },
+                    {
+                        id: 21,
+                        question: "What does the UPDATE command do in SQL?",
+                        choices: [
+                            "Deletes existing records in a table",
+                            "Modifies existing records in a table",
+                            "Adds new records to a table",
+                            "Retrieves values from a table"
+                        ],
+                        correctAnswer: "Modifies existing records in a table"
+                    },
+                    {
+                        id: 22,
+                        question: "Which SQL query will update the 'Section' and 'Status' of the student with StudentID '2018-100013'?",
+                        choices: [
+                            "UPDATE Students SET Section = 'IT202', Status = 'Irregular' WHERE StudentID = '2018-100013';",
+                            "UPDATE Students SET Section = 'IT202' WHERE StudentID = '2018-100013';",
+                            "UPDATE Students WHERE Section = 'IT202' AND Status = 'Irregular';",
+                            "UPDATE Students SET Section = 'IT202' WHERE Status = 'Irregular';"
+                        ],
+                        correctAnswer: "UPDATE Students SET Section = 'IT202', Status = 'Irregular' WHERE StudentID = '2018-100013';"
+                    },
+                    {
+                        id: 23,
+                        question: "What does the DELETE command do in SQL?",
+                        choices: [
+                            "Adds new records to a table",
+                            "Removes existing records in a table",
+                            "Modifies existing records in a table",
+                            "Sorts the results"
+                        ],
+                        correctAnswer: "Removes existing records in a table"
+                    },
+                    {
+                        id: 24,
+                        question: "Which SQL query will delete the student with StudentID '2018-100013' from the 'Students' table?",
+                        choices: [
+                            "DELETE FROM Students WHERE StudentID = '2018-100013';",
+                            "DELETE FROM Students WHERE StudentID = '2018-100013' AND Status = 'Irregular';",
+                            "DELETE FROM Students WHERE StudentID = '2018-100013' OR Status = 'Irregular';",
+                            "DELETE FROM Students WHERE Status = 'Irregular';"
+                        ],
+                        correctAnswer: "DELETE FROM Students WHERE StudentID = '2018-100013';"
+                    },
+                    {
+                        id: 25,
+                        question: "Which SQL query will delete all records from the 'Students' table?",
+                        choices: [
+                            "DELETE FROM Students WHERE StudentID = '2018-100013';",
+                            "DELETE FROM Students;",
+                            "DELETE FROM Students WHERE Status = 'Irregular';",
+                            "REMOVE ALL FROM Students;"
+                        ],
+                        correctAnswer: "DELETE FROM Students;"
                     }
+
+
                 ]
             }
         ];
