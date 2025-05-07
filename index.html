@@ -901,7 +901,7 @@
                             </div>
                             <button
                                 class="select-quiz-btn btn-primary w-full mt-4 bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg"
-                                data-quiz-id="tech">
+                                data-quiz-id="Production Planning Module Exam">
                                 Select Quiz
                             </button>
                         </div>
@@ -1512,289 +1512,192 @@
                 ]
             },
             {
-                id: "Information Management Module 2",
-                title: "Information Management Module 2",
-                description: "May Lamana Na Sya Guys🥹",
-                questions: [
-                    {
-                        id: 1,
-                        question: "What are the basic data manipulation commands in SQL?",
-                        choices: [
-                            "SELECT, DELETE, REMOVE, MODIFY",
-                            "INSERT, SELECT, UPDATE, DELETE",
-                            "ADD, SELECT, UPDATE, DELETE",
-                            "SELECT, REMOVE, ADD, MODIFY"
-                        ],
-                        correctAnswer: "INSERT, SELECT, UPDATE, DELETE"
-                    },
-                    {
-                        id: 2,
-                        question: "Which SQL command is used to add new rows/records to a table?",
-                        choices: [
-                            "UPDATE",
-                            "DELETE",
-                            "INSERT INTO",
-                            "SELECT"
-                        ],
-                        correctAnswer: "INSERT INTO"
-                    },
-                    {
-                        id: 3,
-                        question: "What is the correct syntax to insert a new record into the 'Students' table for columns 'LastName' and 'Section'?",
-                        choices: [
-                            "INSERT INTO Students (LastName, Section) VALUES ('Reyes', 'IT102');",
-                            "INSERT INTO Students VALUES ('Reyes', 'IT102');",
-                            "INSERT INTO Students (LastName, Section) SET ('Reyes', 'IT102');",
-                            "INSERT INTO Students (LastName, Section) VALUES ('Reyes', IT102);"
-                        ],
-                        correctAnswer: "INSERT INTO Students (LastName, Section) VALUES ('Reyes', 'IT102');"
-                    },
-                    {
-                        id: 4,
-                        question: "To add new records to all the columns of a table, which SQL syntax should be used?",
-                        choices: [
-                            "INSERT INTO table_name (column1, column2) VALUES (value1, value2);",
-                            "INSERT INTO table_name VALUES (value1, value2);",
-                            "INSERT INTO table_name SELECT * FROM table_name;",
-                            "INSERT INTO table_name SET column1=value1, column2=value2;"
-                        ],
-                        correctAnswer: "INSERT INTO table_name VALUES (value1, value2);"
-                    },
-                    {
-                        id: 5,
-                        question: "What SQL command is used to retrieve values of all rows or a subset of rows from a table?",
-                        choices: [
-                            "SELECT",
-                            "INSERT",
-                            "UPDATE",
-                            "DELETE"
-                        ],
-                        correctAnswer: "SELECT"
-                    },
-                    {
-                        id: 6,
-                        question: "Which SQL query will retrieve all columns from the 'Students' table?",
-                        choices: [
-                            "SELECT * FROM Students;",
-                            "SELECT columns FROM Students;",
-                            "SELECT ALL FROM Students;",
-                            "SELECT * FROM table_name;"
-                        ],
-                        correctAnswer: "SELECT * FROM Students;"
-                    },
-                    {
-                        id: 7,
-                        question: "What does the DISTINCT operator do in SQL?",
-                        choices: [
-                            "Filters rows based on a condition",
-                            "Retrieves unique values from columns",
-                            "Sorts the result in ascending order",
-                            "Retrieves all records from the table"
-                        ],
-                        correctAnswer: "Retrieves unique values from columns"
-                    },
-                    {
-                        id: 8,
-                        question: "Which SQL query will retrieve all distinct values from the 'Section' column in the 'Students' table?",
-                        choices: [
-                            "SELECT DISTINCT Section FROM Students;",
-                            "SELECT Section FROM Students WHERE DISTINCT;",
-                            "SELECT ALL DISTINCT Section FROM Students;",
-                            "SELECT DISTINCT * FROM Students WHERE Section;"
-                        ],
-                        correctAnswer: "SELECT DISTINCT Section FROM Students;"
-                    },
-                    {
-                        id: 9,
-                        question: "What is the purpose of the WHERE clause in SQL?",
-                        choices: [
-                            "To add new records to the table",
-                            "To sort the results",
-                            "To filter the rows of data based on a condition",
-                            "To delete rows from the table"
-                        ],
-                        correctAnswer: "To filter the rows of data based on a condition"
-                    },
-                    {
-                        id: 10,
-                        question: "What will the following SQL query return: SELECT * FROM Students WHERE Section = 'IT101';",
-                        choices: [
-                            "All records in the 'Students' table with the Section 'IT101'",
-                            "All records in the 'Students' table where Section is NULL",
-                            "All records where Section is greater than 'IT101'",
-                            "All records in the 'Students' table excluding 'IT101'"
-                        ],
-                        correctAnswer: "All records in the 'Students' table with the Section 'IT101'"
-                    },
-                    {
-                        id: 11,
-                        question: "How do you query for rows where a column is empty or NULL?",
-                        choices: [
-                            "SELECT * FROM Students WHERE Section = NULL;",
-                            "SELECT * FROM Students WHERE Section IS EMPTY;",
-                            "SELECT * FROM Students WHERE Section IS NULL;",
-                            "SELECT * FROM Students WHERE Section = '';"
-                        ],
-                        correctAnswer: "SELECT * FROM Students WHERE Section IS NULL;"
-                    },
-                    {
-                        id: 12,
-                        question: "What does the LIKE operator do in SQL?",
-                        choices: [
-                            "Determines if a value matches a given number pattern",
-                            "Determines if a value matches a given string pattern",
-                            "Checks if a value is equal to another value",
-                            "Checks if a value is null"
-                        ],
-                        correctAnswer: "Determines if a value matches a given string pattern"
-                    },
-                    {
-                        id: 13,
-                        question: "What does the '%' wildcard in the LIKE operator represent?",
-                        choices: [
-                            "Zero, one, or multiple characters",
-                            "A single character",
-                            "A number",
-                            "Any special character"
-                        ],
-                        correctAnswer: "Zero, one, or multiple characters"
-                    },
-                    {
-                        id: 14,
-                        question: "Which SQL query will retrieve all students whose last names have 'b' in the second position?",
-                        choices: [
-                            "SELECT * FROM Students WHERE LastName LIKE 'b%';",
-                            "SELECT * FROM Students WHERE LastName LIKE '_b%';",
-                            "SELECT * FROM Students WHERE LastName LIKE '%b';",
-                            "SELECT * FROM Students WHERE LastName LIKE '%b%';"
-                        ],
-                        correctAnswer: "SELECT * FROM Students WHERE LastName LIKE '_b%';"
-                    },
-                    {
-                        id: 15,
-                        question: "What does the IN operator do in SQL?",
-                        choices: [
-                            "Checks whether a value is within a specified range",
-                            "Checks whether a value matches a given string pattern",
-                            "Checks whether a value matches any value within a given list",
-                            "Checks whether a value is greater than or equal to another value"
-                        ],
-                        correctAnswer: "Checks whether a value matches any value within a given list"
-                    },
-                    {
-                        id: 16,
-                        question: "Which SQL query will retrieve all students from the 'Students' table in Sections 'IT101', 'IT102', or 'IT103'?",
-                        choices: [
-                            "SELECT * FROM Students WHERE Section IN ('IT101', 'IT102', 'IT103');",
-                            "SELECT * FROM Students WHERE Section = ('IT101', 'IT102', 'IT103');",
-                            "SELECT * FROM Students WHERE Section LIKE 'IT101' OR 'IT102' OR 'IT103';",
-                            "SELECT * FROM Students WHERE Section IN ('IT101', 'IT102');"
-                        ],
-                        correctAnswer: "SELECT * FROM Students WHERE Section IN ('IT101', 'IT102', 'IT103');"
-                    },
-                    {
-                        id: 17,
-                        question: "What does the BETWEEN operator do in SQL?",
-                        choices: [
-                            "Checks if a value matches a list of values",
-                            "Checks if a value is within a range",
-                            "Checks if a value matches a specific pattern",
-                            "Checks if a value is null"
-                        ],
-                        correctAnswer: "Checks if a value is within a range"
-                    },
-                    {
-                        id: 18,
-                        question: "Which SQL query will retrieve all students whose age is between 13 and 15?",
-                        choices: [
-                            "SELECT * FROM Students WHERE Age BETWEEN 13 AND 15;",
-                            "SELECT * FROM Students WHERE Age > 13 AND < 15;",
-                            "SELECT * FROM Students WHERE Age = 13 OR 15;",
-                            "SELECT * FROM Students WHERE Age > 13 AND Age < 15;"
-                        ],
-                        correctAnswer: "SELECT * FROM Students WHERE Age BETWEEN 13 AND 15;"
-                    },
-                    {
-                        id: 19,
-                        question: "What does the ORDER BY clause do in SQL?",
-                        choices: [
-                            "Sorts retrieved values in ascending or descending order",
-                            "Groups retrieved values based on certain criteria",
-                            "Filters the rows of data",
-                            "Deletes rows from a table"
-                        ],
-                        correctAnswer: "Sorts retrieved values in ascending or descending order"
-                    },
-                    {
-                        id: 20,
-                        question: "Which SQL query will sort the results by 'LastName' in ascending order?",
-                        choices: [
-                            "SELECT * FROM Students ORDER BY LastName DESC;",
-                            "SELECT * FROM Students ORDER BY LastName;",
-                            "SELECT * FROM Students ORDER BY LastName ASC;",
-                            "SELECT * FROM Students ORDER BY LastName DESC, FirstName;"
-                        ],
-                        correctAnswer: "SELECT * FROM Students ORDER BY LastName;"
-                    },
-                    {
-                        id: 21,
-                        question: "What does the UPDATE command do in SQL?",
-                        choices: [
-                            "Deletes existing records in a table",
-                            "Modifies existing records in a table",
-                            "Adds new records to a table",
-                            "Retrieves values from a table"
-                        ],
-                        correctAnswer: "Modifies existing records in a table"
-                    },
-                    {
-                        id: 22,
-                        question: "Which SQL query will update the 'Section' and 'Status' of the student with StudentID '2018-100013'?",
-                        choices: [
-                            "UPDATE Students SET Section = 'IT202', Status = 'Irregular' WHERE StudentID = '2018-100013';",
-                            "UPDATE Students SET Section = 'IT202' WHERE StudentID = '2018-100013';",
-                            "UPDATE Students WHERE Section = 'IT202' AND Status = 'Irregular';",
-                            "UPDATE Students SET Section = 'IT202' WHERE Status = 'Irregular';"
-                        ],
-                        correctAnswer: "UPDATE Students SET Section = 'IT202', Status = 'Irregular' WHERE StudentID = '2018-100013';"
-                    },
-                    {
-                        id: 23,
-                        question: "What does the DELETE command do in SQL?",
-                        choices: [
-                            "Adds new records to a table",
-                            "Removes existing records in a table",
-                            "Modifies existing records in a table",
-                            "Sorts the results"
-                        ],
-                        correctAnswer: "Removes existing records in a table"
-                    },
-                    {
-                        id: 24,
-                        question: "Which SQL query will delete the student with StudentID '2018-100013' from the 'Students' table?",
-                        choices: [
-                            "DELETE FROM Students WHERE StudentID = '2018-100013';",
-                            "DELETE FROM Students WHERE StudentID = '2018-100013' AND Status = 'Irregular';",
-                            "DELETE FROM Students WHERE StudentID = '2018-100013' OR Status = 'Irregular';",
-                            "DELETE FROM Students WHERE Status = 'Irregular';"
-                        ],
-                        correctAnswer: "DELETE FROM Students WHERE StudentID = '2018-100013';"
-                    },
-                    {
-                        id: 25,
-                        question: "Which SQL query will delete all records from the 'Students' table?",
-                        choices: [
-                            "DELETE FROM Students WHERE StudentID = '2018-100013';",
-                            "DELETE FROM Students;",
-                            "DELETE FROM Students WHERE Status = 'Irregular';",
-                            "REMOVE ALL FROM Students;"
-                        ],
-                        correctAnswer: "DELETE FROM Students;"
-                    }
-
-
-                ]
-            }
+    id: "Production Planning Module Exam",
+    title: "Production Planning Module Exam",
+    description: "A 30-question multiple choice exam on Production Planning fundamentals.",
+    questions: [
+        {
+            id: 1,
+            question: "What is the primary purpose of Production Planning?",
+            choices: ["Reducing labor cost", "Aligning demand with manufacturing capacity", "Creating marketing strategies", "Managing vendor relationships"],
+            correctAnswer: "Aligning demand with manufacturing capacity"
+        },
+        {
+            id: 2,
+            question: "What does the Income Statement represent?",
+            choices: ["Cash flow from operations", "Assets and liabilities", "Revenues and expenses for a period", "Stock value changes"],
+            correctAnswer: "Revenues and expenses for a period"
+        },
+        {
+            id: 3,
+            question: "What serves as the link between Strategic Planning and Detailed Planning?",
+            choices: ["Inventory Management", "Demand Management", "Financial Planning", "Cost Estimation"],
+            correctAnswer: "Demand Management"
+        },
+        {
+            id: 4,
+            question: "What is a Product Group?",
+            choices: ["Only top-level products", "Only sub-assemblies", "Can be multi-level or single-level", "Sales-only items"],
+            correctAnswer: "Can be multi-level or single-level"
+        },
+        {
+            id: 5,
+            question: "What are Confirmations used for?",
+            choices: ["Validating customer orders", "Pricing orders", "Monitoring production cycle progression", "Planning production"],
+            correctAnswer: "Monitoring production cycle progression"
+        },
+        {
+            id: 6,
+            question: "A Multi-level BOM includes:",
+            choices: ["Only raw materials", "Only top-level components", "Main components and their sub-components", "Tools and equipment"],
+            correctAnswer: "Main components and their sub-components"
+        },
+        {
+            id: 7,
+            question: "Shop Floor Documents are printed when:",
+            choices: ["A quote is generated", "Production Order is released", "An invoice is created", "Goods are received"],
+            correctAnswer: "Production Order is released"
+        },
+        {
+            id: 8,
+            question: "G/L Accounts are stored based on:",
+            choices: ["Department code", "Product code", "Company Code and Chart of Accounts", "Material Type"],
+            correctAnswer: "Company Code and Chart of Accounts"
+        },
+        {
+            id: 9,
+            question: "A Business Area represents:",
+            choices: ["A supplier region", "An area of financial reporting only", "Separate operations/responsibilities within an organization", "A shipping zone"],
+            correctAnswer: "Separate operations/responsibilities within an organization"
+        },
+        {
+            id: 10,
+            question: "Accounts Receivable (FI-AR) contains info about:",
+            choices: ["Vendor orders", "Inventory turnover", "Customer transactions", "Employee salaries"],
+            correctAnswer: "Customer transactions"
+        },
+        {
+            id: 11,
+            question: "A Work Center is defined as:",
+            choices: ["Distribution location", "Quality control unit", "Place within a plant where value-added work occurs", "Corporate headquarters"],
+            correctAnswer: "Place within a plant where value-added work occurs"
+        },
+        {
+            id: 12,
+            question: "Item Category in a BOM defines items based on:",
+            choices: ["Inventory count", "Functional area", "Specific criteria", "Storage location"],
+            correctAnswer: "Specific criteria"
+        },
+        {
+            id: 13,
+            question: "What is the foundation of reliable Sales and Operations Planning?",
+            choices: ["Inventory audits", "Forecasting", "Customer surveys", "Material pricing"],
+            correctAnswer: "Forecasting"
+        },
+        {
+            id: 14,
+            question: "Chart of Accounts is a scheme that groups:",
+            choices: ["Material codes", "Company hierarchies", "G/L accounts", "Pricing rules"],
+            correctAnswer: "G/L accounts"
+        },
+        {
+            id: 15,
+            question: "Goods Receipt is:",
+            choices: ["Accepting customer returns", "Receiving goods from suppliers only", "Accepting output from production into stock", "Shipping notification"],
+            correctAnswer: "Accepting output from production into stock"
+        },
+        {
+            id: 16,
+            question: "Which of the following is NOT a part of Production Planning?",
+            choices: ["Distribution Channel", "Forecasting", "Bill of Materials", "Work Center"],
+            correctAnswer: "Distribution Channel"
+        },
+        {
+            id: 17,
+            question: "The Warranty Document is:",
+            choices: ["A part of FI journal entries", "Not part of standard Production Planning", "Used for demand planning", "Key for production release"],
+            correctAnswer: "Not part of standard Production Planning"
+        },
+        {
+            id: 18,
+            question: "Which module collects transactional data in Financial Accounting?",
+            choices: ["MM", "SD", "FI", "CO"],
+            correctAnswer: "FI"
+        },
+        {
+            id: 19,
+            question: "A request created in the planning run is called:",
+            choices: ["Vendor Order", "Forecast Order", "Purchase Requisition", "Production Order"],
+            correctAnswer: "Purchase Requisition"
+        },
+        {
+            id: 20,
+            question: "Which statement is NOT TRUE?",
+            choices: ["Equity and expenses are the same", "Demand Management links planning levels", "Forecasting is foundational to planning", "BOM lists components"],
+            correctAnswer: "Equity and expenses are the same"
+        },
+        {
+            id: 21,
+            question: "Receipt of Customer Payment is part of:",
+            choices: ["Inventory Management", "Cost Accounting", "Accounts Receivable", "Demand Forecasting"],
+            correctAnswer: "Accounts Receivable"
+        },
+        {
+            id: 22,
+            question: "Bill of Materials (BOM) is used to:",
+            choices: ["Forecast market demand", "List product or assembly components", "Track shipments", "Schedule orders"],
+            correctAnswer: "List product or assembly components"
+        },
+        {
+            id: 23,
+            question: "Which department is responsible for generating journal entries for purchases?",
+            choices: ["Sales", "Financial Accounting", "Materials Management (MM)", "HR"],
+            correctAnswer: "Materials Management (MM)"
+        },
+        {
+            id: 24,
+            question: "Which activity generates FI journal entries for sales?",
+            choices: ["Procurement", "Billing in SD", "Inventory check", "Demand Management"],
+            correctAnswer: "Billing in SD"
+        },
+        {
+            id: 25,
+            question: "Forecasting is essential because it:",
+            choices: ["Optimizes pricing", "Oversees inventory in manufacturing", "Tracks customer complaints", "Manages supplier contracts"],
+            correctAnswer: "Oversees inventory in manufacturing"
+        },
+        {
+            id: 26,
+            question: "A Purchase Order is:",
+            choices: ["Payment confirmation", "Request to customer", "Instruction to a vendor for materials/services", "Notification of delay"],
+            correctAnswer: "Instruction to a vendor for materials/services"
+        },
+        {
+            id: 27,
+            question: "Which best describes a Purchase Order in MRP?",
+            choices: ["Tool for marketing", "Billing document", "Request for goods/services at a specific time", "Inventory summary"],
+            correctAnswer: "Request for goods/services at a specific time"
+        },
+        {
+            id: 28,
+            question: "Operation Data is:",
+            choices: ["Forecast data", "NOT part of planning", "Vendor information", "Financial statement"],
+            correctAnswer: "NOT part of planning"
+        },
+        {
+            id: 29,
+            question: "Production Planning tracks:",
+            choices: ["Employee attendance", "Manufacturing process flow", "Tax documentation", "Product pricing"],
+            correctAnswer: "Manufacturing process flow"
+        },
+        {
+            id: 30,
+            question: "Chart of Accounts provides a framework for:",
+            choices: ["Shipping goods", "Recording accounting values", "Managing forecasts", "Releasing production orders"],
+            correctAnswer: "Recording accounting values"
+        }
+    ]
+}
         ];
 
         // App state
