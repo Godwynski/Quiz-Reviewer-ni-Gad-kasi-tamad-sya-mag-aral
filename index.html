@@ -1022,683 +1022,376 @@
 
     <script>
         // Quiz data - would normally be loaded from a JSON file or API
-        const quizzesData = [
+const quizzesData = [
+    {
+        id: "delegates-events-collections",
+        title: "Delegates, Events, Collections & Generics",
+        description: "A 50-question multiple choice reviewer based on Handout 1 and Handout 2.",
+        questions: [
             {
-                id: "database",
-                title: "Information Management Module 1",
-                description: "Why do I need to do this? engk dude!",
-                questions: [
-                    {
-                        id: 1,
-                        question: "What is a query in the context of a database?",
-                        choices: [
-                            "A type of database table",
-                            "A specific request for data manipulation issued by the user or application",
-                            "A programming language used only for web development",
-                            "A backup of the database"
-                        ],
-                        correctAnswer: "A specific request for data manipulation issued by the user or application"
-                    },
-                    {
-                        id: 2,
-                        question: "What does SQL stand for?",
-                        choices: [
-                            "Structured Question Language",
-                            "Standard Query Logic",
-                            "Structured Query Language",
-                            "Sequential Query List"
-                        ],
-                        correctAnswer: "Structured Query Language"
-                    },
-                    {
-                        id: 3,
-                        question: "How is SQL pronounced?",
-                        choices: [
-                            "Only as \"S-Q-L\"",
-                            "Only as \"sequel\"",
-                            "Either as \"S-Q-L\" or \"sequel\"",
-                            "As \"SQL\" (one syllable)"
-                        ],
-                        correctAnswer: "Either as \"S-Q-L\" or \"sequel\""
-                    },
-                    {
-                        id: 4,
-                        question: "Which of the following is NOT a function of SQL commands?",
-                        choices: [
-                            "Creating database and table structures",
-                            "Performing data manipulation",
-                            "Designing user interfaces",
-                            "Querying the database for useful information"
-                        ],
-                        correctAnswer: "Designing user interfaces"
-                    },
-                    {
-                        id: 5,
-                        question: "Which of these is a popular Database Management System (DBMS)?",
-                        choices: [
-                            "Microsoft Word",
-                            "Adobe Photoshop",
-                            "MySQL",
-                            "Google Chrome"
-                        ],
-                        correctAnswer: "MySQL"
-                    },
-                    {
-                        id: 6,
-                        question: "Which DBMS is developed by Microsoft and widely used in enterprise environments?",
-                        choices: [
-                            "Oracle RDBMS",
-                            "Microsoft SQL Server",
-                            "MySQL",
-                            "Microsoft Excel"
-                        ],
-                        correctAnswer: "Microsoft SQL Server"
-                    },
-                    {
-                        id: 7,
-                        question: "True or False: Microsoft Access is a database management tool.",
-                        choices: [
-                            "True",
-                            "False"
-                        ],
-                        correctAnswer: "True"
-                    },
-                    {
-                        id: 8,
-                        question: "Which of the following is an open-source DBMS?",
-                        choices: [
-                            "Microsoft SQL Server",
-                            "Oracle RDBMS",
-                            "MySQL",
-                            "Microsoft Access"
-                        ],
-                        correctAnswer: "MySQL"
-                    },
-                    {
-                        id: 9,
-                        question: "SQL commands can be used for:",
-                        choices: [
-                            "Only querying data",
-                            "Only creating tables",
-                            "Both data manipulation and database administration",
-                            "Only deleting records"
-                        ],
-                        correctAnswer: "Both data manipulation and database administration"
-                    },
-                    {
-                        id: 10,
-                        question: "Which DBMS is known for its use in large-scale enterprise applications?",
-                        choices: [
-                            "Microsoft Access",
-                            "Oracle RDBMS",
-                            "Notepad",
-                            "PowerPoint"
-                        ],
-                        correctAnswer: "Oracle RDBMS"
-                    },
-                    {
-                        id: 11,
-                        question: "Which category does the decimal data type belong to?",
-                        choices: [
-                            "Approximate numeric",
-                            "Exact numeric",
-                            "Character strings",
-                            "Binary strings"
-                        ],
-                        correctAnswer: "Exact numeric"
-                    },
-                    {
-                        id: 12,
-                        question: "Which of the following is an approximate numeric data type?",
-                        choices: [
-                            "int",
-                            "float",
-                            "money",
-                            "bit"
-                        ],
-                        correctAnswer: "float"
-                    },
-                    {
-                        id: 13,
-                        question: "What is the primary difference between char and varchar?",
-                        choices: [
-                            "char is for Unicode, varchar is not",
-                            "char is fixed-length, varchar is variable-length",
-                            "char is for binary data, varchar is for text",
-                            "char is case-sensitive, varchar is not"
-                        ],
-                        correctAnswer: "char is fixed-length, varchar is variable-length"
-                    },
-                    {
-                        id: 14,
-                        question: "Which data type would you use to store a large block of text?",
-                        choices: [
-                            "varchar",
-                            "text",
-                            "binary",
-                            "money"
-                        ],
-                        correctAnswer: "text"
-                    },
-                    {
-                        id: 15,
-                        question: "Which category includes datetime and time?",
-                        choices: [
-                            "Exact numeric",
-                            "Approximate numeric",
-                            "Date and time",
-                            "Unicode character strings"
-                        ],
-                        correctAnswer: "Date and time"
-                    },
-                    {
-                        id: 16,
-                        question: "What is the main purpose of nvarchar compared to varchar?",
-                        choices: [
-                            "nvarchar supports Unicode, varchar does not",
-                            "nvarchar is for binary data, varchar is for text",
-                            "nvarchar is fixed-length, varchar is variable-length",
-                            "nvarchar is only for numeric data"
-                        ],
-                        correctAnswer: "nvarchar supports Unicode, varchar does not"
-                    },
-                    {
-                        id: 17,
-                        question: "Which data type would you use to store a true/false value?",
-                        choices: [
-                            "int",
-                            "bit",
-                            "decimal",
-                            "float"
-                        ],
-                        correctAnswer: "bit"
-                    },
-                    {
-                        id: 18,
-                        question: "What is the difference between binary and varbinary?",
-                        choices: [
-                            "binary is fixed-length, varbinary is variable-length",
-                            "binary is for text, varbinary is for numbers",
-                            "binary supports Unicode, varbinary does not",
-                            "binary is deprecated, varbinary is the new standard"
-                        ],
-                        correctAnswer: "binary is fixed-length, varbinary is variable-length"
-                    },
-                    {
-                        id: 19,
-                        question: "Which of the following is NOT a valid SQL data type?",
-                        choices: [
-                            "image",
-                            "cursor",
-                            "array",
-                            "xml"
-                        ],
-                        correctAnswer: "array"
-                    },
-                    {
-                        id: 20,
-                        question: "Which data type is used to store globally unique identifiers (GUIDs)?",
-                        choices: [
-                            "uniqueidentifier",
-                            "sql_variant",
-                            "table",
-                            "ntext"
-                        ],
-                        correctAnswer: "uniqueidentifier"
-                    },
-                    {
-                        id: 21,
-                        question: "Which constraint ensures a column cannot contain NULL values?",
-                        choices: [
-                            "UNIQUE",
-                            "NOT NULL",
-                            "PRIMARY KEY",
-                            "CHECK"
-                        ],
-                        correctAnswer: "NOT NULL"
-                    },
-                    {
-                        id: 22,
-                        question: "How would you add a NOT NULL constraint to an existing table column?",
-                        choices: [
-                            "MODIFY TABLE Students SET NOT NULL (Section)",
-                            "ALTER TABLE Students ALTER COLUMN Section NOT NULL",
-                            "UPDATE TABLE Students SET Section NOT NULL",
-                            "CHANGE TABLE Students MODIFY Section NOT NULL"
-                        ],
-                        correctAnswer: "ALTER TABLE Students ALTER COLUMN Section NOT NULL"
-                    },
-                    {
-                        id: 23,
-                        question: "What is the purpose of a UNIQUE constraint?",
-                        choices: [
-                            "To ensure all values in a column are identical",
-                            "To prevent NULL values in a column",
-                            "To ensure all values in a column are different",
-                            "To link tables together"
-                        ],
-                        correctAnswer: "To ensure all values in a column are different"
-                    },
-                    {
-                        id: 24,
-                        question: "How would you add a UNIQUE constraint to an existing table?",
-                        choices: [
-                            "ALTER TABLE Students ADD UNIQUE (StudentID)",
-                            "MODIFY TABLE Students SET UNIQUE (StudentID)",
-                            "UPDATE TABLE Students ADD CONSTRAINT UNIQUE (StudentID)",
-                            "CHANGE TABLE Students UNIQUE (StudentID)"
-                        ],
-                        correctAnswer: "ALTER TABLE Students ADD UNIQUE (StudentID)"
-                    },
-                    {
-                        id: 25,
-                        question: "What is the main difference between PRIMARY KEY and UNIQUE constraints?",
-                        choices: [
-                            "PRIMARY KEY allows NULLs, UNIQUE doesn't",
-                            "PRIMARY KEY doesn't allow NULLs, UNIQUE does",
-                            "There is no difference",
-                            "PRIMARY KEY is for numbers only"
-                        ],
-                        correctAnswer: "PRIMARY KEY doesn't allow NULLs, UNIQUE does"
-                    },
-                    {
-                        id: 26,
-                        question: "How would you create a FOREIGN KEY constraint when creating a new table?",
-                        choices: [
-                            "CREATE TABLE Orders (OrderID int FOREIGN KEY REFERENCES Customers(CustomerID))",
-                            "CREATE TABLE Orders (OrderID int REFERENCES Customers(CustomerID))",
-                            "Both a and b are correct",
-                            "Neither a nor b is correct"
-                        ],
-                        correctAnswer: "Both a and b are correct"
-                    },
-                    {
-                        id: 27,
-                        question: "What does a CHECK constraint do?",
-                        choices: [
-                            "Verifies data type compatibility",
-                            "Ensures values meet a specified condition",
-                            "Checks for duplicate values",
-                            "Validates foreign key relationships"
-                        ],
-                        correctAnswer: "Ensures values meet a specified condition"
-                    },
-                    {
-                        id: 28,
-                        question: "How would you add a DEFAULT constraint to an existing table?",
-                        choices: [
-                            "ALTER TABLE Students SET DEFAULT 'Not yet enrolled' FOR Section",
-                            "ALTER TABLE Students ADD CONSTRAINT df_section DEFAULT 'Not yet enrolled' FOR Section",
-                            "MODIFY TABLE Students DEFAULT 'Not yet enrolled' FOR Section",
-                            "UPDATE TABLE Students SET DEFAULT 'Not yet enrolled' FOR Section"
-                        ],
-                        correctAnswer: "ALTER TABLE Students ADD CONSTRAINT df_section DEFAULT 'Not yet enrolled' FOR Section"
-                    },
-                    {
-                        id: 29,
-                        question: "Which constraint would you use to ensure student ages are at least 15?",
-                        choices: [
-                            "NOT NULL",
-                            "UNIQUE",
-                            "CHECK",
-                            "DEFAULT"
-                        ],
-                        correctAnswer: "CHECK"
-                    },
-                    {
-                        id: 30,
-                        question: "What happens if you try to insert NULL into a column with a NOT NULL constraint?",
-                        choices: [
-                            "The NULL value is converted to 0",
-                            "The NULL value is converted to an empty string",
-                            "The operation fails with an error",
-                            "The NULL value is accepted"
-                        ],
-                        correctAnswer: "The operation fails with an error"
-                    },
-                    {
-                        id: 31,
-                        question: "Can a table have multiple UNIQUE constraints?",
-                        choices: [
-                            "Yes",
-                            "No"
-                        ],
-                        correctAnswer: "Yes"
-                    },
-                    {
-                        id: 32,
-                        question: "What is the correct syntax for adding a PRIMARY KEY to an existing table?",
-                        choices: [
-                            "ALTER TABLE Students ADD PRIMARY KEY (StudentID)",
-                            "ALTER TABLE Students SET PRIMARY KEY (StudentID)",
-                            "MODIFY TABLE Students PRIMARY KEY (StudentID)",
-                            "UPDATE TABLE Students ADD PRIMARY KEY (StudentID)"
-                        ],
-                        correctAnswer: "ALTER TABLE Students ADD PRIMARY KEY (StudentID)"
-                    },
-                    {
-                        id: 33,
-                        question: "What SQL statement completely removes a database and all its contents?",
-                        choices: [
-                            "DELETE DATABASE",
-                            "REMOVE DATABASE",
-                            "DROP DATABASE",
-                            "ERASE DATABASE"
-                        ],
-                        correctAnswer: "DROP DATABASE"
-                    },
-                    {
-                        id: 34,
-                        question: "What happens when you execute DROP DATABASE myDB;?",
-                        choices: [
-                            "The database is backed up",
-                            "The database is permanently deleted",
-                            "The database is renamed",
-                            "The database is temporarily disabled"
-                        ],
-                        correctAnswer: "The database is permanently deleted"
-                    },
-                    {
-                        id: 35,
-                        question: "What is the correct syntax to create a new table called 'Employees' with columns for ID (integer) and Name (string)?",
-                        choices: [
-                            "CREATE Employees (ID int, Name varchar(50))",
-                            "CREATE TABLE Employees (ID int, Name varchar(50))",
-                            "NEW TABLE Employees (ID int, Name varchar(50))",
-                            "MAKE TABLE Employees (ID int, Name varchar(50))"
-                        ],
-                        correctAnswer: "CREATE TABLE Employees (ID int, Name varchar(50))"
-                    },
-                    {
-                        id: 36,
-                        question: "Which statement would create a table with StudentID, LastName, and FirstName columns?",
-                        choices: [
-                            "NEW TABLE Students WITH StudentID, LastName, FirstName",
-                            "CREATE Students (StudentID, LastName, FirstName)",
-                            "CREATE TABLE Students (StudentID varchar(11), (LastName varchar(99)), (FirstName varchar(99))",
-                            "CREATE TABLE Students (StudentID varchar(11), LastName varchar(99), FirstName varchar(99)"
-                        ],
-                        correctAnswer: "CREATE TABLE Students (StudentID varchar(11), LastName varchar(99), FirstName varchar(99)"
-                    },
-                    {
-                        id: 37,
-                        question: "What is the difference between DROP TABLE and TRUNCATE TABLE?",
-                        choices: [
-                            "DROP removes the table structure, TRUNCATE keeps it",
-                            "TRUNCATE removes the table structure, DROP keeps it",
-                            "Both do exactly the same thing",
-                            "DROP is temporary, TRUNCATE is permanent"
-                        ],
-                        correctAnswer: "DROP removes the table structure, TRUNCATE keeps it"
-                    },
-                    {
-                        id: 38,
-                        question: "Which statement would completely remove the 'Orders' table from the database?",
-                        choices: [
-                            "DELETE TABLE Orders",
-                            "REMOVE TABLE Orders",
-                            "DROP TABLE Orders",
-                            "ERASE TABLE Orders"
-                        ],
-                        correctAnswer: "DROP TABLE Orders"
-                    },
-                    {
-                        id: 39,
-                        question: "How would you add a 'BirthDate' column to an existing 'Students' table?",
-                        choices: [
-                            "MODIFY TABLE Students ADD BirthDate date",
-                            "ALTER TABLE Students ADD BirthDate date",
-                            "UPDATE TABLE Students ADD COLUMN BirthDate date",
-                            "CHANGE TABLE Students ADD BirthDate date"
-                        ],
-                        correctAnswer: "ALTER TABLE Students ADD BirthDate date"
-                    },
-                    {
-                        id: 40,
-                        question: "What statement would remove the 'MiddleName' column from the 'Students' table?",
-                        choices: [
-                            "ALTER TABLE Students DELETE MiddleName",
-                            "ALTER TABLE Students REMOVE MiddleName",
-                            "ALTER TABLE Students DROP COLUMN MiddleName",
-                            "UPDATE TABLE Students DELETE COLUMN MiddleName"
-                        ],
-                        correctAnswer: "ALTER TABLE Students DROP COLUMN MiddleName"
-                    },
-                    {
-                        id: 41,
-                        question: "How would you change the data type of the 'PhoneNumber' column from varchar(15) to varchar(20)?",
-                        choices: [
-                            "MODIFY TABLE Students CHANGE PhoneNumber varchar(20)",
-                            "ALTER TABLE Students MODIFY COLUMN PhoneNumber varchar(20)",
-                            "ALTER TABLE Students ALTER COLUMN PhoneNumber varchar(20)",
-                            "UPDATE TABLE Students SET PhoneNumber varchar(20)"
-                        ],
-                        correctAnswer: "ALTER TABLE Students ALTER COLUMN PhoneNumber varchar(20)"
-                    },
-                    {
-                        id: 42,
-                        question: "You need to quickly remove all data from the 'LogEntries' table but keep the table structure for future use. Which command should you use?",
-                        choices: [
-                            "DELETE FROM LogEntries",
-                            "DROP TABLE LogEntries",
-                            "TRUNCATE TABLE LogEntries",
-                            "CLEAR TABLE LogEntries"
-                        ],
-                        correctAnswer: "TRUNCATE TABLE LogEntries"
-                    },
-                    {
-                        id: 43,
-                        question: "After creating a table, you realize you need to store middle names. What is the best approach?",
-                        choices: [
-                            "Delete and recreate the table with the new column",
-                            "Use ALTER TABLE to add the new column",
-                            "Create a new table with all columns and migrate data",
-                            "Store middle names in the FirstName column"
-                        ],
-                        correctAnswer: "Use ALTER TABLE to add the new column"
-                    },
-                    {
-                        id: 44,
-                        question: "What happens if you try to DROP a table that doesn't exist?",
-                        choices: [
-                            "The command is ignored",
-                            "An error occurs",
-                            "The database is deleted instead",
-                            "A warning appears but the operation continues"
-                        ],
-                        correctAnswer: "An error occurs"
-                    }
-
-                ]
+                id: 1,
+                question: "A delegate in C# is best described as:",
+                choices: [
+                    "A variable that stores integers only",
+                    "A class that encapsulates a method reference",
+                    "A special type of array",
+                    "A namespace in .NET"
+                ],
+                correctAnswer: "A class that encapsulates a method reference"
             },
             {
-    id: "Production Planning Module Exam",
-    title: "Production Planning Module Exam",
-    description: "A 30-question multiple choice exam on Production Planning fundamentals.",
-    questions: [
-        {
-            id: 1,
-            question: "What is the primary purpose of Production Planning?",
-            choices: ["Reducing labor cost", "Aligning demand with manufacturing capacity", "Creating marketing strategies", "Managing vendor relationships"],
-            correctAnswer: "Aligning demand with manufacturing capacity"
-        },
-        {
-            id: 2,
-            question: "What does the Income Statement represent?",
-            choices: ["Cash flow from operations", "Assets and liabilities", "Revenues and expenses for a period", "Stock value changes"],
-            correctAnswer: "Revenues and expenses for a period"
-        },
-        {
-            id: 3,
-            question: "What serves as the link between Strategic Planning and Detailed Planning?",
-            choices: ["Inventory Management", "Demand Management", "Financial Planning", "Cost Estimation"],
-            correctAnswer: "Demand Management"
-        },
-        {
-            id: 4,
-            question: "What is a Product Group?",
-            choices: ["Only top-level products", "Only sub-assemblies", "Can be multi-level or single-level", "Sales-only items"],
-            correctAnswer: "Can be multi-level or single-level"
-        },
-        {
-            id: 5,
-            question: "What are Confirmations used for?",
-            choices: ["Validating customer orders", "Pricing orders", "Monitoring production cycle progression", "Planning production"],
-            correctAnswer: "Monitoring production cycle progression"
-        },
-        {
-            id: 6,
-            question: "A Multi-level BOM includes:",
-            choices: ["Only raw materials", "Only top-level components", "Main components and their sub-components", "Tools and equipment"],
-            correctAnswer: "Main components and their sub-components"
-        },
-        {
-            id: 7,
-            question: "Shop Floor Documents are printed when:",
-            choices: ["A quote is generated", "Production Order is released", "An invoice is created", "Goods are received"],
-            correctAnswer: "Production Order is released"
-        },
-        {
-            id: 8,
-            question: "G/L Accounts are stored based on:",
-            choices: ["Department code", "Product code", "Company Code and Chart of Accounts", "Material Type"],
-            correctAnswer: "Company Code and Chart of Accounts"
-        },
-        {
-            id: 9,
-            question: "A Business Area represents:",
-            choices: ["A supplier region", "An area of financial reporting only", "Separate operations/responsibilities within an organization", "A shipping zone"],
-            correctAnswer: "Separate operations/responsibilities within an organization"
-        },
-        {
-            id: 10,
-            question: "Accounts Receivable (FI-AR) contains info about:",
-            choices: ["Vendor orders", "Inventory turnover", "Customer transactions", "Employee salaries"],
-            correctAnswer: "Customer transactions"
-        },
-        {
-            id: 11,
-            question: "A Work Center is defined as:",
-            choices: ["Distribution location", "Quality control unit", "Place within a plant where value-added work occurs", "Corporate headquarters"],
-            correctAnswer: "Place within a plant where value-added work occurs"
-        },
-        {
-            id: 12,
-            question: "Item Category in a BOM defines items based on:",
-            choices: ["Inventory count", "Functional area", "Specific criteria", "Storage location"],
-            correctAnswer: "Specific criteria"
-        },
-        {
-            id: 13,
-            question: "What is the foundation of reliable Sales and Operations Planning?",
-            choices: ["Inventory audits", "Forecasting", "Customer surveys", "Material pricing"],
-            correctAnswer: "Forecasting"
-        },
-        {
-            id: 14,
-            question: "Chart of Accounts is a scheme that groups:",
-            choices: ["Material codes", "Company hierarchies", "G/L accounts", "Pricing rules"],
-            correctAnswer: "G/L accounts"
-        },
-        {
-            id: 15,
-            question: "Goods Receipt is:",
-            choices: ["Accepting customer returns", "Receiving goods from suppliers only", "Accepting output from production into stock", "Shipping notification"],
-            correctAnswer: "Accepting output from production into stock"
-        },
-        {
-            id: 16,
-            question: "Which of the following is NOT a part of Production Planning?",
-            choices: ["Distribution Channel", "Forecasting", "Bill of Materials", "Work Center"],
-            correctAnswer: "Distribution Channel"
-        },
-        {
-            id: 17,
-            question: "The Warranty Document is:",
-            choices: ["A part of FI journal entries", "Not part of standard Production Planning", "Used for demand planning", "Key for production release"],
-            correctAnswer: "Not part of standard Production Planning"
-        },
-        {
-            id: 18,
-            question: "Which module collects transactional data in Financial Accounting?",
-            choices: ["MM", "SD", "FI", "CO"],
-            correctAnswer: "FI"
-        },
-        {
-            id: 19,
-            question: "A request created in the planning run is called:",
-            choices: ["Vendor Order", "Forecast Order", "Purchase Requisition", "Production Order"],
-            correctAnswer: "Purchase Requisition"
-        },
-        {
-            id: 20,
-            question: "Which statement is NOT TRUE?",
-            choices: ["Equity and expenses are the same", "Demand Management links planning levels", "Forecasting is foundational to planning", "BOM lists components"],
-            correctAnswer: "Equity and expenses are the same"
-        },
-        {
-            id: 21,
-            question: "Receipt of Customer Payment is part of:",
-            choices: ["Inventory Management", "Cost Accounting", "Accounts Receivable", "Demand Forecasting"],
-            correctAnswer: "Accounts Receivable"
-        },
-        {
-            id: 22,
-            question: "Bill of Materials (BOM) is used to:",
-            choices: ["Forecast market demand", "List product or assembly components", "Track shipments", "Schedule orders"],
-            correctAnswer: "List product or assembly components"
-        },
-        {
-            id: 23,
-            question: "Which department is responsible for generating journal entries for purchases?",
-            choices: ["Sales", "Financial Accounting", "Materials Management (MM)", "HR"],
-            correctAnswer: "Materials Management (MM)"
-        },
-        {
-            id: 24,
-            question: "Which activity generates FI journal entries for sales?",
-            choices: ["Procurement", "Billing in SD", "Inventory check", "Demand Management"],
-            correctAnswer: "Billing in SD"
-        },
-        {
-            id: 25,
-            question: "Forecasting is essential because it:",
-            choices: ["Optimizes pricing", "Oversees inventory in manufacturing", "Tracks customer complaints", "Manages supplier contracts"],
-            correctAnswer: "Oversees inventory in manufacturing"
-        },
-        {
-            id: 26,
-            question: "A Purchase Order is:",
-            choices: ["Payment confirmation", "Request to customer", "Instruction to a vendor for materials/services", "Notification of delay"],
-            correctAnswer: "Instruction to a vendor for materials/services"
-        },
-        {
-            id: 27,
-            question: "Which best describes a Purchase Order in MRP?",
-            choices: ["Tool for marketing", "Billing document", "Request for goods/services at a specific time", "Inventory summary"],
-            correctAnswer: "Request for goods/services at a specific time"
-        },
-        {
-            id: 28,
-            question: "Operation Data is:",
-            choices: ["Forecast data", "NOT part of planning", "Vendor information", "Financial statement"],
-            correctAnswer: "NOT part of planning"
-        },
-        {
-            id: 29,
-            question: "Production Planning tracks:",
-            choices: ["Employee attendance", "Manufacturing process flow", "Tax documentation", "Product pricing"],
-            correctAnswer: "Manufacturing process flow"
-        },
-        {
-            id: 30,
-            question: "Chart of Accounts provides a framework for:",
-            choices: ["Shipping goods", "Recording accounting values", "Managing forecasts", "Releasing production orders"],
-            correctAnswer: "Recording accounting values"
-        }
-    ]
-}
-        ];
+                id: 2,
+                question: "Which keyword is used to declare a delegate?",
+                choices: ["class", "event", "delegate", "method"],
+                correctAnswer: "delegate"
+            },
+            {
+                id: 3,
+                question: "What must match between a delegate and the method it references?",
+                choices: ["Access modifier only", "Return type and parameters", "Method name", "Namespace"],
+                correctAnswer: "Return type and parameters"
+            },
+            {
+                id: 4,
+                question: "What is the correct syntax for declaring a delegate?",
+                choices: [
+                    "delegate <return type> <delegate-name>()",
+                    "<access modifier> delegate <return type> <delegate-name>(<parameters>)",
+                    "delegate class <name>()",
+                    "delegate <method>()"
+                ],
+                correctAnswer: "<access modifier> delegate <return type> <delegate-name>(<parameters>)"
+            },
+            {
+                id: 5,
+                question: "Which of the following is an example of delegate instantiation?",
+                choices: [
+                    "mathOp = new mathOp();",
+                    "mathOp md = Formula.Addition;",
+                    "delegate mathOp(int x, int y);",
+                    "Formula.getSum();"
+                ],
+                correctAnswer: "mathOp md = Formula.Addition;"
+            },
+            {
+                id: 6,
+                question: "Invoking a delegate is similar to:",
+                choices: ["Calling a variable", "Calling a method", "Using an operator", "Creating a class"],
+                correctAnswer: "Calling a method"
+            },
+            {
+                id: 7,
+                question: "Generic delegates are not bound to:",
+                choices: ["Methods", "Classes", "Specific data types", "Parameters"],
+                correctAnswer: "Specific data types"
+            },
+            {
+                id: 8,
+                question: "What type of method can a generic delegate reference?",
+                choices: [
+                    "Only void methods",
+                    "Any method with no parameters",
+                    "Any method with a return type and single parameter of the same type",
+                    "Static methods only"
+                ],
+                correctAnswer: "Any method with a return type and single parameter of the same type"
+            },
+            {
+                id: 9,
+                question: "Which delegate type allows flexibility across multiple data types?",
+                choices: ["Standard delegate", "Generic delegate", "Multicast delegate", "Event delegate"],
+                correctAnswer: "Generic delegate"
+            },
+            {
+                id: 10,
+                question: "Which table shows the main differences between delegates and interfaces?",
+                choices: [
+                    "Delegates are faster to execute but slower to get; interfaces are slower to execute but faster to get.",
+                    "Delegates implement multiple methods; interfaces can only implement once.",
+                    "Interfaces reference any method; delegates extend functionality.",
+                    "Both are identical in usage."
+                ],
+                correctAnswer: "Delegates are faster to execute but slower to get; interfaces are slower to execute but faster to get."
+            },
+            {
+                id: 11,
+                question: "An event in C# is:",
+                choices: [
+                    "A variable declaration",
+                    "A method call",
+                    "A member of a class that is fired when a specific action occurs",
+                    "An exception handler"
+                ],
+                correctAnswer: "A member of a class that is fired when a specific action occurs"
+            },
+            {
+                id: 12,
+                question: "Events in C# are usually initiated by:",
+                choices: ["Delegates", "Exceptions", "Tasks like mouse clicks or key presses", "Constructors"],
+                correctAnswer: "Tasks like mouse clicks or key presses"
+            },
+            {
+                id: 13,
+                question: "The keyword used to declare an event is:",
+                choices: ["delegate", "event", "trigger", "add"],
+                correctAnswer: "event"
+            },
+            {
+                id: 14,
+                question: "Correct syntax for declaring an event:",
+                choices: [
+                    "delegate_name event_name;",
+                    "public delegate event event_name;",
+                    "public event delegate_name event_name;",
+                    "event <method>;"
+                ],
+                correctAnswer: "public event delegate_name event_name;"
+            },
+            {
+                id: 15,
+                question: "Which operator is used to add a delegate to an event?",
+                choices: ["=", "==", "+=", "=>"],
+                correctAnswer: "+="
+            },
+            {
+                id: 16,
+                question: "Event handlers are:",
+                choices: [
+                    "Methods registered to respond when an event occurs",
+                    "Constructors",
+                    "Interfaces",
+                    "Classes"
+                ],
+                correctAnswer: "Methods registered to respond when an event occurs"
+            },
+            {
+                id: 17,
+                question: "Which two accessors are automatically generated when using += with events?",
+                choices: ["open and close", "add and remove", "start and stop", "set and get"],
+                correctAnswer: "add and remove"
+            },
+            {
+                id: 18,
+                question: "To register a new subscription to an event, which accessor is used?",
+                choices: ["remove", "add", "set", "subscribe"],
+                correctAnswer: "add"
+            },
+            {
+                id: 19,
+                question: "Which accessor unregisters an event subscription?",
+                choices: ["delete", "add", "remove", "stop"],
+                correctAnswer: "remove"
+            },
+            {
+                id: 20,
+                question: "Delegates are often described as:",
+                choices: ["Safe callbacks", "Dynamic arrays", "Exception handlers", "Constructors"],
+                correctAnswer: "Safe callbacks"
+            },
+            {
+                id: 21,
+                question: "Which allows extending object functionality?",
+                choices: ["Delegates", "Events", "Interfaces", "Generic delegates"],
+                correctAnswer: "Interfaces"
+            },
+            {
+                id: 22,
+                question: "Which allows multiple method implementations?",
+                choices: ["Delegates", "Interfaces", "Events", "Arrays"],
+                correctAnswer: "Interfaces"
+            },
+            {
+                id: 23,
+                question: "Which is faster to execute but slower to get?",
+                choices: ["Interfaces", "Delegates", "Generics", "Classes"],
+                correctAnswer: "Delegates"
+            },
+            {
+                id: 24,
+                question: "Which is slower to execute but faster to get?",
+                choices: ["Delegates", "Interfaces", "Methods", "Events"],
+                correctAnswer: "Interfaces"
+            },
+            {
+                id: 25,
+                question: "Which class in the sample handout computes the sum of two numbers using events?",
+                choices: ["Formula", "EventAccessorClass", "MathOp", "DelegateClass"],
+                correctAnswer: "EventAccessorClass"
+            },
+            {
+                id: 26,
+                question: "What are collections in .NET?",
+                choices: [
+                    "A type of database",
+                    "A group of objects for storing/managing collections of objects",
+                    "A type of array only",
+                    "Event handlers"
+                ],
+                correctAnswer: "A group of objects for storing/managing collections of objects"
+            },
+            {
+                id: 27,
+                question: "Standard collections are found in which namespace?",
+                choices: [
+                    "System.Collections",
+                    "System.Collections.Generic",
+                    "System.Data",
+                    "System.IO"
+                ],
+                correctAnswer: "System.Collections"
+            },
+            {
+                id: 28,
+                question: "Generic collections are found in which namespace?",
+                choices: [
+                    "System.Generic",
+                    "System.Collections",
+                    "System.Collections.Generic",
+                    "System.Collections.ObjectModel"
+                ],
+                correctAnswer: "System.Collections.Generic"
+            },
+            {
+                id: 29,
+                question: "Which collection is dynamic and allows adding/removing items at runtime?",
+                choices: ["Array", "ArrayList", "Hashtable", "Queue"],
+                correctAnswer: "ArrayList"
+            },
+            {
+                id: 30,
+                question: "Hashtable stores:",
+                choices: ["Only integers", "Keys and values", "Arrays of arrays", "Generic lists"],
+                correctAnswer: "Keys and values"
+            },
+            {
+                id: 31,
+                question: "To access a value in Hashtable, you must specify:",
+                choices: ["The index", "The key", "The value directly", "None"],
+                correctAnswer: "The key"
+            },
+            {
+                id: 32,
+                question: "SortedList is a combination of:",
+                choices: ["Queue and Stack", "ArrayList and Hashtable", "Array and ArrayList", "Dictionary and Queue"],
+                correctAnswer: "ArrayList and Hashtable"
+            },
+            {
+                id: 33,
+                question: "Which SortedList property returns the number of elements?",
+                choices: ["Capacity", "Count", "Keys", "Values"],
+                correctAnswer: "Count"
+            },
+            {
+                id: 34,
+                question: "Which method removes all elements in a SortedList?",
+                choices: ["Delete()", "Clear()", "RemoveAll()", "Reset()"],
+                correctAnswer: "Clear()"
+            },
+            {
+                id: 35,
+                question: "Which collection follows Last In, First Out (LIFO)?",
+                choices: ["Queue", "Hashtable", "Stack", "ArrayList"],
+                correctAnswer: "Stack"
+            },
+            {
+                id: 36,
+                question: "Which operations are used with Stack?",
+                choices: ["push and pop", "enqueue and dequeue", "add and remove", "get and set"],
+                correctAnswer: "push and pop"
+            },
+            {
+                id: 37,
+                question: "Which collection follows First In, First Out (FIFO)?",
+                choices: ["Array", "Hashtable", "Queue", "Stack"],
+                correctAnswer: "Queue"
+            },
+            {
+                id: 38,
+                question: "Queue uses which operations?",
+                choices: ["push and pop", "enqueue and dequeue", "add and remove", "insert and delete"],
+                correctAnswer: "enqueue and dequeue"
+            },
+            {
+                id: 39,
+                question: "Which interface allows looping through a collection?",
+                choices: ["ICollection", "IDictionary", "IEnumerable", "IComparable"],
+                correctAnswer: "IEnumerable"
+            },
+            {
+                id: 40,
+                question: "Which interface provides a list of elements accessible via key/value?",
+                choices: ["IEnumerable", "IDictionary", "ICollection", "IInterface"],
+                correctAnswer: "IDictionary"
+            },
+            {
+                id: 41,
+                question: "Generics in C# allow:",
+                choices: [
+                    "Creating templates with placeholder types",
+                    "Using only integers",
+                    "Declaring static classes",
+                    "Creating constants"
+                ],
+                correctAnswer: "Creating templates with placeholder types"
+            },
+            {
+                id: 42,
+                question: "List<T> is best described as:",
+                choices: ["A static array", "A dynamic collection that can grow/shrink", "A stack", "A queue"],
+                correctAnswer: "A dynamic collection that can grow/shrink"
+            },
+            {
+                id: 43,
+                question: "Which List<T> method adds an item?",
+                choices: ["Insert()", "Add()", "Push()", "Enqueue()"],
+                correctAnswer: "Add()"
+            },
+            {
+                id: 44,
+                question: "Which List<T> method removes an item?",
+                choices: ["Delete()", "Clear()", "Remove()", "RemoveAtAll()"],
+                correctAnswer: "Remove()"
+            },
+            {
+                id: 45,
+                question: "Which List<T> method returns index of a specified element?",
+                choices: ["GetIndex()", "IndexOf()", "FindIndex()", "CheckIndex()"],
+                correctAnswer: "IndexOf()"
+            },
+            {
+                id: 46,
+                question: "Which List<T> method sorts elements?",
+                choices: ["Order()", "Sort()", "Compare()", "Arrange()"],
+                correctAnswer: "Sort()"
+            },
+            {
+                id: 47,
+                question: "Which Queue<T> method adds an element?",
+                choices: ["Push()", "Add()", "Enqueue()", "Insert()"],
+                correctAnswer: "Enqueue()"
+            },
+            {
+                id: 48,
+                question: "Which Queue<T> method removes and returns the first element?",
+                choices: ["Dequeue()", "Pop()", "Remove()", "Shift()"],
+                correctAnswer: "Dequeue()"
+            },
+            {
+                id: 49,
+                question: "Which Stack<T> method returns the top element without removing it?",
+                choices: ["Top()", "Get()", "Peek()", "Read()"],
+                correctAnswer: "Peek()"
+            },
+            {
+                id: 50,
+                question: "Which Stack<T> method removes and returns the top element?",
+                choices: ["Delete()", "Pop()", "Peek()", "Remove()"],
+                correctAnswer: "Pop()"
+            }
+        ]
+    }
+];
+
 
         // App state
         let currentState = {
